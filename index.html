@@ -11,7 +11,7 @@
     --bone:#EDE4D0;
     --gold:#E9C06A;
     --amber:#D08A3C;
-    --teal:#79AFC6;
+    --rose:#C98A9A;
     --dim:#6E7893;
     --dimmer:#454E66;
     --mono:'Cascadia Mono',Consolas,'DejaVu Sans Mono','Courier New',monospace;
@@ -21,21 +21,13 @@
   body{
     font-family:var(--mono);color:var(--bone);
     display:flex;align-items:center;justify-content:center;
-    overflow:hidden;-webkit-font-smoothing:none;
-    touch-action:manipulation;
+    overflow:hidden;-webkit-font-smoothing:none;touch-action:manipulation;
   }
   #stage{
-    position:relative;
-    width:min(100vw, 177.78vh);
-    height:min(56.25vw, 100vh);
-    overflow:hidden;
-    background:var(--void);
+    position:relative;width:min(100vw,177.78vh);height:min(56.25vw,100vh);
+    overflow:hidden;background:var(--void);
   }
-  canvas{
-    position:absolute;inset:0;width:100%;height:100%;
-    image-rendering:pixelated;image-rendering:crisp-edges;display:block;
-  }
-  /* scanlines — a screen, not a document */
+  canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;display:block;}
   #crt{
     position:absolute;inset:0;pointer-events:none;z-index:6;
     background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,rgba(0,0,0,0) 1px 3px);
@@ -47,112 +39,87 @@
   }
   .ui{position:absolute;z-index:8;}
 
-  /* ── HUD ── */
   #hud{top:calc(var(--u)*7);left:calc(var(--u)*8);right:calc(var(--u)*8);
        display:flex;justify-content:space-between;align-items:flex-start;gap:calc(var(--u)*6);}
   #hud .lbl{font-size:calc(var(--u)*4.4);letter-spacing:calc(var(--u)*.9);color:var(--dimmer);}
-  #frags{display:flex;gap:calc(var(--u)*2.6);margin-top:calc(var(--u)*3);}
-  #frags i{
-    width:calc(var(--u)*3.4);height:calc(var(--u)*3.4);display:block;
-    background:transparent;border:calc(var(--u)*.9) solid var(--dimmer);
-  }
+  #frags{display:flex;gap:calc(var(--u)*2.3);margin-top:calc(var(--u)*3);}
+  #frags i{width:calc(var(--u)*3.2);height:calc(var(--u)*3.2);display:block;
+           background:transparent;border:calc(var(--u)*.9) solid var(--dimmer);}
   #frags i.on{background:var(--gold);border-color:var(--gold);}
+  #who{margin-top:calc(var(--u)*3.4);display:flex;gap:calc(var(--u)*3);
+       font-size:calc(var(--u)*3.6);letter-spacing:calc(var(--u)*.7);color:var(--dimmer);}
+  #who span{opacity:0;transition:opacity .8s ease;}
+  #who span.on{opacity:1;color:var(--rose);}
   #tools{display:flex;gap:calc(var(--u)*3);}
-  .btn{
-    font-family:var(--mono);font-size:calc(var(--u)*4.2);letter-spacing:calc(var(--u)*.7);
-    color:var(--dimmer);background:transparent;
-    border:calc(var(--u)*.9) solid var(--dimmer);
-    padding:calc(var(--u)*1.6) calc(var(--u)*2.6);cursor:pointer;
-  }
+  .btn{font-family:var(--mono);font-size:calc(var(--u)*4.2);letter-spacing:calc(var(--u)*.7);
+       color:var(--dimmer);background:transparent;border:calc(var(--u)*.9) solid var(--dimmer);
+       padding:calc(var(--u)*1.6) calc(var(--u)*2.6);cursor:pointer;}
   .btn:hover,.btn:focus-visible{color:var(--bone);border-color:var(--bone);outline:none;}
   .btn.on{color:var(--gold);border-color:var(--gold);}
 
-  /* ── dialogue ── */
   #dlg{
-    left:calc(var(--u)*20);right:calc(var(--u)*20);bottom:calc(var(--u)*12);
-    background:rgba(6,9,16,.94);
-    border:calc(var(--u)*1) solid var(--bone);
-    padding:calc(var(--u)*6) calc(var(--u)*7) calc(var(--u)*5);
-    display:none;
+    left:50%;transform:translateX(-50%);bottom:calc(var(--u)*10);
+    width:min(calc(var(--u)*250),92%);
+    background:rgba(6,9,16,.95);border:calc(var(--u)*1) solid var(--bone);
+    padding:calc(var(--u)*5.5) calc(var(--u)*6.5) calc(var(--u)*4.5);display:none;
   }
   #dlg.show{display:block;}
-  #d-yr{font-size:calc(var(--u)*4.2);letter-spacing:calc(var(--u)*1.3);color:var(--amber);}
-  #d-t{font-size:calc(var(--u)*7);letter-spacing:calc(var(--u)*.4);margin-top:calc(var(--u)*2.4);color:var(--bone);}
-  #d-b{font-size:calc(var(--u)*4.8);line-height:1.66;margin-top:calc(var(--u)*3.4);color:#C3CBDC;}
-  #d-f{
-    margin-top:calc(var(--u)*4);font-size:calc(var(--u)*4.2);
-    letter-spacing:calc(var(--u)*1.1);color:var(--gold);
+  #d-yr{font-size:calc(var(--u)*4);letter-spacing:calc(var(--u)*1.3);color:var(--amber);}
+  #d-t{font-size:calc(var(--u)*6.4);letter-spacing:calc(var(--u)*.4);margin-top:calc(var(--u)*2);color:var(--bone);}
+  #d-b{font-size:calc(var(--u)*4.2);line-height:1.62;margin-top:calc(var(--u)*3);color:#C3CBDC;}
+  #d-i{
+    font-size:calc(var(--u)*4.2);line-height:1.62;margin-top:calc(var(--u)*3.4);
+    color:var(--gold);border-left:calc(var(--u)*1) solid rgba(233,192,106,.42);
+    padding-left:calc(var(--u)*4);
   }
-  #d-go{
-    margin-top:calc(var(--u)*3.4);font-size:calc(var(--u)*3.9);
-    letter-spacing:calc(var(--u)*1);color:var(--dimmer);
-  }
+  #d-tr{margin-top:calc(var(--u)*3.4);font-size:calc(var(--u)*3.5);color:var(--dim);letter-spacing:calc(var(--u)*.4);}
+  #d-f{margin-top:calc(var(--u)*2.4);font-size:calc(var(--u)*4);letter-spacing:calc(var(--u)*1.1);color:var(--gold);}
+  #d-go{margin-top:calc(var(--u)*3);font-size:calc(var(--u)*3.7);letter-spacing:calc(var(--u)*1);color:var(--dimmer);}
   .blink{animation:bl 1.05s steps(2,end) infinite;}
   @keyframes bl{0%,50%{opacity:1}50.01%,100%{opacity:.15}}
 
-  /* ── prompt over the world ── */
-  #prompt{
-    left:0;right:0;bottom:calc(var(--u)*30);text-align:center;
-    font-size:calc(var(--u)*4.4);letter-spacing:calc(var(--u)*1.2);
-    color:var(--bone);display:none;text-shadow:0 calc(var(--u)*1) 0 #000;
-  }
+  #prompt{left:0;right:0;bottom:calc(var(--u)*26);text-align:center;
+          font-size:calc(var(--u)*4.4);letter-spacing:calc(var(--u)*1.2);
+          color:var(--bone);display:none;text-shadow:0 calc(var(--u)*1) 0 #000;}
   #prompt.show{display:block;}
+  #toast{
+    left:0;right:0;top:calc(var(--u)*46);text-align:center;
+    font-size:calc(var(--u)*5.6);letter-spacing:calc(var(--u)*2);color:var(--rose);
+    opacity:0;transition:opacity .9s ease;text-shadow:0 calc(var(--u)*1) 0 #000;
+  }
+  #toast.show{opacity:1;}
 
-  /* ── title / ending ── */
-  .screen{
-    inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:calc(var(--u)*10);background:rgba(6,8,14,.9);
-  }
+  .screen{inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;
+          text-align:center;padding:calc(var(--u)*10);background:rgba(6,8,14,.9);}
   .screen.show{display:flex;}
-  .screen h1{
-    margin:0;font-size:calc(var(--u)*15);letter-spacing:calc(var(--u)*4);font-weight:400;
-    color:var(--bone);text-shadow:calc(var(--u)*1) calc(var(--u)*1) 0 #3B2E14;
-  }
-  .screen .sub{
-    margin-top:calc(var(--u)*4.5);font-size:calc(var(--u)*4.3);letter-spacing:calc(var(--u)*1.5);
-    color:var(--dim);
-  }
-  .screen .keys{
-    margin-top:calc(var(--u)*9);font-size:calc(var(--u)*4.2);line-height:2;color:var(--dimmer);
-    letter-spacing:calc(var(--u)*.8);
-  }
+  .screen h1{margin:0;font-size:calc(var(--u)*15);letter-spacing:calc(var(--u)*4);font-weight:400;
+             color:var(--bone);text-shadow:calc(var(--u)*1) calc(var(--u)*1) 0 #3B2E14;}
+  .screen .sub{margin-top:calc(var(--u)*4.5);font-size:calc(var(--u)*4.3);letter-spacing:calc(var(--u)*1.5);color:var(--dim);}
+  .screen .keys{margin-top:calc(var(--u)*9);font-size:calc(var(--u)*4.2);line-height:2;color:var(--dimmer);letter-spacing:calc(var(--u)*.8);}
   .screen .keys b{color:var(--bone);font-weight:400;}
   .screen .start{margin-top:calc(var(--u)*9);font-size:calc(var(--u)*5.4);letter-spacing:calc(var(--u)*1.6);color:var(--gold);}
-  /* the ending keeps the constellation visible — text sits under it */
-  #end{
-    justify-content:flex-end;
-    padding:0 calc(var(--u)*10) calc(var(--u)*7);
-    background:linear-gradient(180deg,rgba(8,11,20,0) 0%,rgba(8,11,20,.55) 34%,rgba(8,11,20,.93) 52%);
-    overflow-y:auto;
-  }
-  #end h1{font-size:calc(var(--u)*11);letter-spacing:calc(var(--u)*3.4);}
-  #end .sub{margin-top:calc(var(--u)*3);font-size:calc(var(--u)*3.8);}
-  #end .brand{
-    max-width:calc(var(--u)*236);font-size:calc(var(--u)*4);line-height:1.72;color:#CBD3E2;
-    margin-top:calc(var(--u)*4);text-align:left;min-height:calc(var(--u)*30);
-  }
-  #end .chips{display:flex;flex-wrap:wrap;gap:calc(var(--u)*2);justify-content:center;margin-top:calc(var(--u)*4);max-width:calc(var(--u)*250);}
-  #end .chips span{
-    font-size:calc(var(--u)*3.2);letter-spacing:calc(var(--u)*.7);color:var(--gold);
-    border:calc(var(--u)*.8) solid rgba(233,192,106,.42);padding:calc(var(--u)*1) calc(var(--u)*2);
-  }
-  #end .credits{margin-top:calc(var(--u)*4.5);font-size:calc(var(--u)*2.9);line-height:1.85;color:var(--dimmer);letter-spacing:calc(var(--u)*.4);}
-  #end .start{margin-top:calc(var(--u)*4);font-size:calc(var(--u)*4.2);}
+  #end{justify-content:flex-end;padding:0 calc(var(--u)*10) calc(var(--u)*6);
+       background:linear-gradient(180deg,rgba(8,11,20,0) 0%,rgba(8,11,20,.55) 30%,rgba(8,11,20,.93) 48%);
+       overflow-y:auto;}
+  #end h1{font-size:calc(var(--u)*10);letter-spacing:calc(var(--u)*3.2);}
+  #end .sub{margin-top:calc(var(--u)*2.6);font-size:calc(var(--u)*3.6);}
+  #end .chips{display:flex;flex-wrap:wrap;gap:calc(var(--u)*1.8);justify-content:center;margin-top:calc(var(--u)*3.4);max-width:calc(var(--u)*252);}
+  #end .chips span{font-size:calc(var(--u)*3);letter-spacing:calc(var(--u)*.6);color:var(--gold);
+                   border:calc(var(--u)*.8) solid rgba(233,192,106,.42);padding:calc(var(--u)*.9) calc(var(--u)*1.8);}
+  #end .brand{max-width:calc(var(--u)*236);font-size:calc(var(--u)*3.8);line-height:1.7;color:#CBD3E2;
+              margin-top:calc(var(--u)*3.4);text-align:left;min-height:calc(var(--u)*28);}
+  #end .credits{margin-top:calc(var(--u)*3.6);font-size:calc(var(--u)*2.8);line-height:1.8;color:var(--dimmer);letter-spacing:calc(var(--u)*.4);}
+  #end .start{margin-top:calc(var(--u)*3.4);font-size:calc(var(--u)*4);}
 
-  /* ── touch controls ── */
-  #pad{
-    bottom:calc(var(--u)*8);left:calc(var(--u)*8);right:calc(var(--u)*8);
-    display:none;justify-content:space-between;pointer-events:none;
-  }
-  #pad button{
-    pointer-events:auto;font-family:var(--mono);
-    width:calc(var(--u)*26);height:calc(var(--u)*20);
-    background:rgba(10,14,24,.75);border:calc(var(--u)*1) solid var(--dimmer);
-    color:var(--bone);font-size:calc(var(--u)*7);
-  }
+  #pad{bottom:calc(var(--u)*8);left:calc(var(--u)*8);right:calc(var(--u)*8);
+       display:none;justify-content:space-between;pointer-events:none;}
+  #pad button{pointer-events:auto;font-family:var(--mono);
+              width:calc(var(--u)*26);height:calc(var(--u)*20);
+              background:rgba(10,14,24,.75);border:calc(var(--u)*1) solid var(--dimmer);
+              color:var(--bone);font-size:calc(var(--u)*7);}
   #pad .grp{display:flex;gap:calc(var(--u)*4);}
   body.touch #pad{display:flex;}
-  body.touch #dlg{bottom:calc(var(--u)*32);}
+  body.touch #dlg{bottom:calc(var(--u)*30);}
 </style>
 </head>
 <body>
@@ -165,20 +132,26 @@
     <div>
       <div class="lbl" id="hud-title">LIFELINE</div>
       <div id="frags"></div>
+      <div id="who">
+        <span id="w-b">BIANCA</span><span id="w-i">ISAC</span><span id="w-j">IARA</span>
+      </div>
     </div>
     <div id="tools">
       <button class="btn on" id="b-de">DE</button>
       <button class="btn" id="b-en">EN</button>
-      <button class="btn" id="b-snd">♪</button>
+      <button class="btn on" id="b-snd">♪</button>
     </div>
   </div>
 
   <div class="ui" id="prompt"></div>
+  <div class="ui" id="toast"></div>
 
   <div class="ui" id="dlg">
     <div id="d-yr"></div>
     <div id="d-t"></div>
     <div id="d-b"></div>
+    <div id="d-i"></div>
+    <div id="d-tr"></div>
     <div id="d-f"></div>
     <div id="d-go" class="blink"></div>
   </div>
@@ -200,10 +173,7 @@
   </div>
 
   <div class="ui" id="pad">
-    <div class="grp">
-      <button id="p-l">◀</button>
-      <button id="p-r">▶</button>
-    </div>
+    <div class="grp"><button id="p-l">◀</button><button id="p-r">▶</button></div>
     <div class="grp"><button id="p-a">✦</button></div>
   </div>
 </div>
@@ -212,133 +182,228 @@
 (function(){
 "use strict";
 
-/* ═════════════ the nine stations — the level IS the lifeline ═════════════ */
+/* ══════════════ ten stations · the ground you walk on is the curve ══════════════ */
 var ST = [
-  { k:'peak', yr:{de:'KINDHEIT',en:'CHILDHOOD'},
-    t:{de:'Der grosse Tisch', en:'The big table'},
-    b:{de:'Türkei. Onkel, Tanten, Cousins — alle an einem Tisch.\nHier habe ich zum ersten Mal gespürt, was Zugehörigkeit ist.',
-       en:'Türkiye. Uncles, aunts, cousins — all at one table.\nThe first time I felt what belonging is.'},
+  { gy:104, motif:'village', yr:{de:'KINDHEIT',en:'CHILDHOOD'},
+    t:{de:'Der grosse Tisch',en:'The big table'},
+    b:{de:'Türkei, jeden Sommer. Onkel, Tanten, Cousins — dreissig Leute an einem Tisch, und für jeden ein Platz.',
+       en:'Türkiye, every summer. Uncles, aunts, cousins — thirty people at one table, and a seat for every one of them.'},
+    i:{de:'Ich wusste damals nicht, dass ich den Rest meines Lebens damit verbringen würde, diesen Tisch nachzubauen.',
+       en:'I did not know then that I would spend the rest of my life rebuilding that table.'},
+    tr:{de:'Zugehörigkeit wird zum Urmotiv — älter als jedes Ziel',
+        en:'Belonging becomes the origin motive — older than any goal'},
     f:{de:'ZUGEHÖRIGKEIT',en:'BELONGING'},
-    p:{ sky:[78,52,38], deep:[30,20,16], gnd:[96,66,44], cap:[150,110,70], star:.35 } },
+    p:{ sky:[86,56,38], deep:[30,20,16], gnd:[100,68,44], cap:[156,114,72], star:.32, jag:.25 } },
 
-  { k:'valley', yr:{de:'2011',en:'2011'},
-    t:{de:'Das erste Nein', en:'The first No'},
-    b:{de:'Bezirksschule verwehrt — trotz Notenschnitt.\nLeistung reicht nicht, wenn ein System nein sagt.',
-       en:'Denied the higher school track — despite the grades.\nPerformance is not enough when a system says no.'},
+  { gy:138, motif:'none', yr:{de:'2011',en:'2011'},
+    t:{de:'Das erste Nein',en:'The first No'},
+    b:{de:'Der Notenschnitt reichte. Die Bezirksschule nahm mich trotzdem nicht — ohne Grund, ohne Begründung.',
+       en:'My grades were good enough. The higher school track turned me down anyway — no reason, no explanation.'},
+    i:{de:'Da habe ich gelernt: Leistung allein schützt dich nicht. Und ich habe beschlossen, nie wieder um Erlaubnis zu fragen, wer ich werden darf.',
+       en:'That is where I learned: performance alone does not protect you. And I decided never again to ask permission for who I am allowed to become.'},
+    tr:{de:'Leistungsstreben z +2.7 — hier bekommt der Ehrgeiz seinen Zünder',
+        en:'Achievement striving z +2.7 — here the ambition gets its fuse'},
     f:{de:'EHRGEIZ',en:'AMBITION'},
-    p:{ sky:[34,50,80], deep:[14,20,34], gnd:[44,58,88], cap:[78,100,145], star:.5 } },
+    p:{ sky:[34,50,80], deep:[14,20,34], gnd:[44,58,88], cap:[78,100,145], star:.5, jag:.9 } },
 
-  { k:'peak', yr:{de:'2013',en:'2013'},
-    t:{de:'Australien', en:'Australia'},
-    b:{de:'Mit vierzehn allein ans andere Ende der Welt.\nAm meisten ich selbst, wenn frei und selbstbestimmt.',
-       en:'At fourteen, alone to the other side of the world.\nMost myself when free and self-determined.'},
+  { gy:92, motif:'wide', yr:{de:'2013',en:'2013'},
+    t:{de:'Australien',en:'Australia'},
+    b:{de:'Mit vierzehn allein ans andere Ende der Welt. Kein Netz, keine Eltern im Nebenzimmer, Schulabschluss in Eigenregie.',
+       en:'At fourteen, alone to the other side of the world. No safety net, no parents next door, finishing school on my own.'},
+    i:{de:'Zum ersten Mal war niemand da, dem ich es recht machen musste. Ich war nie wieder so frei — und nie wieder so sicher, wer ich bin.',
+       en:'For the first time there was no one to please. I was never that free again — and never that certain of who I am.'},
+    tr:{de:'Offenheit für Neues z +2.0 · Autonomie wird Identität',
+        en:'Openness to new action z +2.0 · autonomy becomes identity'},
     f:{de:'AUTONOMIE',en:'AUTONOMY'},
-    p:{ sky:[44,96,112], deep:[16,40,54], gnd:[40,88,102], cap:[86,158,178], star:.15 } },
+    p:{ sky:[48,102,118], deep:[16,40,54], gnd:[42,92,106], cap:[92,166,186], star:.14, jag:.15 } },
 
-  { k:'valley', yr:{de:'2015',en:'2015'},
-    t:{de:'Der verlorene Weg', en:'The lost path'},
-    b:{de:'Der Familienbetrieb wird verkauft. Übernehmen ging nicht mehr.\nBauen schon.',
-       en:'The family business is sold. Taking over was no longer possible.\nBuilding was.'},
+  { gy:144, motif:'none', yr:{de:'2015',en:'2015'},
+    t:{de:'Der verlorene Weg',en:'The lost path'},
+    b:{de:'Siebzehn, orientierungslos, einfach gejobbt. Dann wird der Familienbetrieb verkauft — der Weg, den ich mir vorgestellt hatte, verschwindet mit einer Unterschrift.',
+       en:'Seventeen, adrift, just taking jobs. Then the family business is sold — the path I had imagined disappears with one signature.'},
+    i:{de:'Das zweite Nein. Übernehmen war keine Option mehr. Also blieb nur bauen — und diesmal etwas, das mir niemand wegnehmen kann.',
+       en:'The second No. Taking over was no longer an option. So building was all that was left — and this time something no one can take from me.'},
+    tr:{de:'Aus zwei Nein werden zwei Motoren: das Eigene bauen, das Verwehrte zurückholen',
+        en:'Two No’s become two engines: build my own, reclaim what was withheld'},
     f:{de:'ANTRIEB',en:'DRIVE'},
-    p:{ sky:[46,48,54], deep:[20,21,24], gnd:[58,60,66], cap:[96,100,108], star:.1 } },
+    p:{ sky:[46,48,54], deep:[20,21,24], gnd:[58,60,66], cap:[96,100,108], star:.09, jag:.55 } },
 
-  { k:'peak', yr:{de:'2017',en:'2017'},
-    t:{de:'Offizier', en:'Officer'},
-    b:{de:'Mit neunzehn Verantwortung für andere.\nRuhige Autorität trägt — man muss nicht laut werden.',
-       en:'At nineteen, responsible for others.\nCalm authority carries — you do not need volume.'},
+  { gy:96, motif:'posts', yr:{de:'2017',en:'2017'},
+    t:{de:'Offizier',en:'Officer'},
+    b:{de:'Mit neunzehn Verantwortung für Männer, die älter sind als ich. Befehle, Druck, Nächte ohne Schlaf.',
+       en:'At nineteen, responsible for men older than me. Orders, pressure, nights without sleep.'},
+    i:{de:'Ich habe gemerkt: Ich muss nicht laut werden, damit es zählt. Die Ruhe war keine Taktik, sie war einfach da. Von hier an trage ich das Licht, in dem andere gehen.',
+       en:'I noticed: I do not need volume for it to count. The calm was not tactics, it was simply there. From here on I carry the light that others walk in.'},
+    tr:{de:'Durchsetzung z +1.4 bei Reizbarkeit z −2.7 — Autorität ohne Hitze',
+        en:'Assertiveness z +1.4 with anger z −2.7 — authority without heat'},
     f:{de:'FÜHRUNG',en:'LEADERSHIP'},
-    p:{ sky:[36,52,74], deep:[14,22,34], gnd:[50,68,94], cap:[92,120,156], star:.45 } },
+    p:{ sky:[38,54,78], deep:[14,22,34], gnd:[52,70,96], cap:[96,124,160], star:.44, jag:.2 } },
 
-  { k:'valley', yr:{de:'ANGOLA',en:'ANGOLA'},
-    t:{de:'Sechs Monate', en:'Six months'},
-    b:{de:'Gefahr, Rassismus, am wenigsten zuhause, das ich je war.\nJetzt weiss ich, was fehlende Zugehörigkeit kostet.',
-       en:'Danger, racism, the least at home I have ever been.\nNow I know what missing belonging costs.'},
+  { gy:140, motif:'none', yr:{de:'ANGOLA',en:'ANGOLA'},
+    t:{de:'Sechs Monate',en:'Six months'},
+    b:{de:'Gefahr auf der Strasse, Rassismus im Alltag, sechs Monate weit weg von allem, was ich kannte.',
+       en:'Danger in the street, racism in daily life, six months far from everything I knew.'},
+    i:{de:'Ich war noch nie so wenig zuhause. Erst da habe ich verstanden, was der Tisch aus meiner Kindheit wirklich wert war — und dass ich ihn nicht finde, sondern bauen muss.',
+       en:'I had never been so little at home. Only there did I understand what that childhood table was really worth — and that I do not find it, I build it.'},
+    tr:{de:'Zugehörigkeit wird Absicht statt Zufall',
+        en:'Belonging becomes intent instead of accident'},
     f:{de:'WURZELN',en:'ROOTS'},
-    p:{ sky:[82,36,28], deep:[30,14,12], gnd:[86,46,34], cap:[148,76,52], star:.2 } },
+    p:{ sky:[88,38,28], deep:[30,14,12], gnd:[90,48,34], cap:[152,78,52], star:.18, jag:.75 } },
 
-  { k:'peak', yr:{de:'2019–22',en:'2019–22'},
-    t:{de:'Bianca · Isac · Iara', en:'Bianca · Isac · Iara'},
-    b:{de:'Hochzeit. Zwei Kinder.\n«Was sich verändert hat? Alles.»',
-       en:'A wedding. Two children.\n“What changed? Everything.”'},
-    f:{de:'FAMILIE',en:'FAMILY'},
-    p:{ sky:[88,62,34], deep:[32,24,14], gnd:[98,72,42], cap:[164,120,68], star:.3 } },
+  { gy:88, motif:'village', spawn:'bianca', yr:{de:'2019',en:'2019'},
+    t:{de:'Die Hochzeit',en:'The wedding'},
+    b:{de:'Bianca. Der Tag, an dem ich aufgehört habe, allein zu rechnen.',
+       en:'Bianca. The day I stopped calculating alone.'},
+    i:{de:'Ich hatte bis dahin alles für mich gebaut. Ab jetzt gab es einen Grund, der grösser war als mein Ehrgeiz — und einen Menschen, der mich hält, wenn der Ehrgeiz nicht reicht.',
+       en:'Until then I had built everything for myself. From now on there was a reason bigger than my ambition — and a person who holds me when ambition is not enough.'},
+    tr:{de:'Motor A schaltet ein: der Familie ein gutes Leben bauen',
+        en:'Engine A switches on: build a good life for the family'},
+    f:{de:'BIANCA',en:'BIANCA'},
+    p:{ sky:[92,64,36], deep:[32,24,14], gnd:[102,74,44], cap:[168,124,70], star:.28, jag:.2 } },
 
-  { k:'valley', yr:{de:'2022',en:'2022'},
-    t:{de:'Der tiefste Punkt', en:'The deepest point'},
-    b:{de:'Konkurs. Panikattacken. Alles weg.\nMittendrin kommt Iara zur Welt — das einzige Licht.',
-       en:'Bankruptcy. Panic attacks. Everything gone.\nIn the middle of it, Iara is born — the only light.'},
+  { gy:82, seg:'cliff', motif:'village', spawn:'isac', yr:{de:'2021',en:'2021'},
+    t:{de:'Isac',en:'Isac'},
+    b:{de:'Isac kommt zur Welt. Aus dem Mann, der etwas erreichen will, wird einer, der etwas hinterlassen will.',
+       en:'Isac is born. The man who wanted to achieve something becomes one who wants to leave something behind.'},
+    i:{de:'Zum ersten Mal denke ich in Jahrzehnten statt in Quartalen. Und zum ersten Mal habe ich Angst — nicht um mich, sondern davor, ihm zu wenig zu sein.',
+       en:'For the first time I think in decades instead of quarters. And for the first time I am afraid — not for myself, but of not being enough for him.'},
+    tr:{de:'Der Massstab wird länger als ein Leben',
+        en:'The yardstick grows longer than one lifetime'},
+    f:{de:'ISAC',en:'ISAC'},
+    p:{ sky:[96,70,40], deep:[34,26,16], gnd:[106,80,48], cap:[176,132,78], star:.3, jag:.15 } },
+
+  { gy:156, seg:'climb', motif:'none', spawn:'iara', yr:{de:'2022',en:'2022'},
+    t:{de:'Der tiefste Punkt',en:'The deepest point'},
+    b:{de:'Corona blockiert jede Einnahme, der rettende Auftrag platzt, die Reserven sind weg. Konkurs. Panikattacken.',
+       en:'Covid blocks every income, the rescuing contract collapses, the reserves are gone. Bankruptcy. Panic attacks.'},
+    i:{de:'Ich hätte damals nicht sagen können, dass es vorbeigeht. Ich konnte nur weitergehen. Mittendrin kommt Iara zur Welt — und das Licht, das fast aus war, brennt wieder.',
+       en:'Back then I could not have said that it passes. I could only keep walking. In the middle of it Iara is born — and the light that had almost gone out burns again.'},
+    tr:{de:'Stressanfälligkeit z −1.3 · was hält, wenn nichts mehr hält',
+        en:'Vulnerability z −1.3 · what holds when nothing else does'},
     f:{de:'WILLE',en:'WILL'},
-    p:{ sky:[34,16,18], deep:[10,6,7], gnd:[38,26,34], cap:[70,48,54], star:.05 } },
+    p:{ sky:[36,17,19], deep:[10,6,7], gnd:[40,27,35], cap:[74,50,56], star:.04, jag:1 } },
 
-  { k:'peak', yr:{de:'HEUTE',en:'TODAY'},
-    t:{de:'Der eigene Weg', en:'My own path'},
-    b:{de:'Philosophie, EMBA, Harvard im Blick, Lorien im Aufbau.\nDer verwehrte Weg — zurückgeholt, zu meinen Bedingungen.',
-       en:'Philosophy, EMBA, Harvard in sight, Lorien in the making.\nThe path once denied — reclaimed, on my own terms.'},
+  { gy:70, motif:'city', yr:{de:'HEUTE',en:'TODAY'},
+    t:{de:'Der eigene Weg',en:'My own path'},
+    b:{de:'Philosophie-Bachelor, EMBA, Harvard im Blick, Lorien im Aufbau. Und drei Menschen, die mitgehen.',
+       en:'Philosophy BA, EMBA, Harvard in sight, Lorien in the making. And three people walking with me.'},
+    i:{de:'Das Nein von 2011 habe ich nicht widerlegt — ich habe es überholt. Und ich weiss jetzt, was mir noch fehlt: das Schwierige früh sagen, nicht erst, wenn es nicht mehr anders geht.',
+       en:'I did not disprove the No of 2011 — I outran it. And I now know what is still missing: saying the hard thing early, not only when there is no other way left.'},
+    tr:{de:'Wille × Plan — das Malzeichen ist die eigentliche Lektion',
+        en:'Will × Plan — the multiplication sign is the real lesson'},
     f:{de:'WILLE × PLAN',en:'WILL × PLAN'},
-    p:{ sky:[42,66,102], deep:[16,26,44], gnd:[52,74,112], cap:[98,130,178], star:.55 } }
+    p:{ sky:[46,70,108], deep:[16,26,44], gnd:[56,78,118], cap:[104,138,186], star:.55, jag:.2 } },
+
+  /* ── zweiter Akt: das Modul. Der Boden wird flach, man geht durch Spiegel ── */
+  { gy:78, act:2, mirror:0, motif:'grid', yr:{de:'LEADING SELF',en:'LEADING SELF'},
+    t:{de:'Der Spiegel',en:'The mirror'},
+    b:{de:'Tag 1: Persönlichkeit und Führung. Das NEO-PI-3 und die Lifeline nebeneinander gelegt — und plötzlich erklärt das eine das andere.',
+       en:'Day 1: personality and leadership. The NEO-PI-3 and the lifeline laid side by side — and suddenly one explains the other.'},
+    i:{de:'Der unbequemste Wert war nicht der höchste, sondern Ordnung z −0.8 neben Selbstdisziplin z +2.5. Mein Motor ist Wille, nicht System. Das heisst: Ich muss nicht ordentlicher werden — ich muss Menschen und Strukturen um mich bauen, die es sind.',
+       en:'The most uncomfortable value was not the highest one, but order z −0.8 next to self-discipline z +2.5. My engine is will, not system. Which means: I do not have to become tidier — I have to build people and structures around me that are.'},
+    tr:{de:'Selbstkenntnis ist kein Zweck, sie ist Konstruktionsplan',
+        en:'Self-knowledge is not a purpose, it is a construction plan'},
+    f:{de:'SELBSTKENNTNIS',en:'SELF-KNOWLEDGE'},
+    p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } },
+
+  { gy:78, act:2, mirror:4, motif:'grid', yr:{de:'MACHT & WIRKUNG',en:'POWER & IMPACT'},
+    t:{de:'Was ankommt',en:'What lands'},
+    b:{de:'Tag 2: Macht als Motiv, und die Lücke zwischen Selbstbild und Ruf. Macht ist nicht das schmutzige Wort — es ist die Fähigkeit, andere wirksam zu machen.',
+       en:'Day 2: power as a motive, and the gap between self-image and reputation. Power is not the dirty word — it is the ability to make others effective.'},
+    i:{de:'Mein Machtdefizit ist nicht Autorität. Es ist Klartext. Was ich nicht sage, kostet mich Wirkung — und den anderen die Chance, es besser zu machen. Die anderen erleben mich direkter, als ich mich im Konflikt tatsächlich verhalte.',
+       en:'My power deficit is not authority. It is candor. What I do not say costs me impact — and costs others the chance to do better. People experience me as more direct than I actually am in conflict.'},
+    tr:{de:'Direktheit z −1.1 — die teuerste Lücke zwischen Wirkung und Absicht',
+        en:'Straightforwardness z −1.1 — the costliest gap between impact and intent'},
+    f:{de:'WIRKUNG',en:'IMPACT'},
+    p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } },
+
+  { gy:78, act:2, mirror:6, motif:'grid', yr:{de:'LEADING TEAMS',en:'LEADING TEAMS'},
+    t:{de:'Warm ist nicht ehrlich',en:'Warm is not honest'},
+    b:{de:'Die Team-Simulation hat es gnadenlos gezeigt: Zusammenarbeit ist nicht die Abwesenheit von Konflikt. Harmonie kann ein Team genauso lähmen wie Streit.',
+       en:'The team simulation showed it without mercy: collaboration is not the absence of conflict. Harmony can paralyse a team just as much as fighting.'},
+    i:{de:'Ich baue warme Räume — das kann ich, seit ich vierzehn bin. Was ich lernen muss: sie auch ehrlich zu machen. Psychologische Sicherheit heisst nicht, dass niemand verletzt wird. Sie heisst, dass jemand das Schwierige sagen darf. Auch zu mir.',
+       en:'I build warm rooms — I have been able to do that since I was fourteen. What I have to learn is to make them honest too. Psychological safety does not mean nobody gets hurt. It means someone is allowed to say the hard thing. To me as well.'},
+    tr:{de:'Altruismus z +1.5 · Harmoniebedürfnis z +1.0 — Stärke und Falle zugleich',
+        en:'Altruism z +1.5 · compliance z +1.0 — strength and trap at once'},
+    f:{de:'SICHERHEIT',en:'SAFETY'},
+    p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } },
+
+  { gy:78, act:2, mirror:9, motif:'grid', yr:{de:'STILE',en:'STYLES'},
+    t:{de:'Vorhand und Rückhand',en:'Forehand and backhand'},
+    b:{de:'Tag 3, Goleman: sechs Führungsstile, und die Frage, welchen man automatisch spielt. Meiner ist Pacesetting — Tempo machen, Massstab setzen, vorangehen.',
+       en:'Day 3, Goleman: six leadership styles, and the question of which one you play automatically. Mine is pacesetting — set the pace, set the standard, go first.'},
+    i:{de:'Meine Rückhand ist Coaching — ausgerechnet der Stil, für den ich alles mitbringe ausser dem frühen, harten Gespräch. Pacesetting skaliert mit meinen Stunden. Coaching verzinst sich. Das ist der ganze Unterschied zwischen der schnellsten Person in der Firma und einer Firma, die auch ohne mich gewinnt.',
+       en:'My backhand is coaching — of all things the style I have everything for except the early, hard conversation. Pacesetting scales with my hours. Coaching compounds. That is the whole difference between being the fastest person in the company and building a company that wins without me.'},
+    tr:{de:'Leistungsstreben z +2.7 trägt die Vorhand · die Rückhand muss ich trainieren',
+        en:'Achievement striving z +2.7 carries the forehand · the backhand needs training'},
+    f:{de:'REPERTOIRE',en:'REPERTOIRE'},
+    p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } }
 ];
 
 var T = {
-  de:{
-    sub:'EIN LEBEN IN NEUN STATIONEN',
-    keys:'<b>◀ ▶</b> gehen &nbsp;·&nbsp; <b>LEERTASTE</b> lesen<br>Mehr braucht es nicht.',
-    start:'LEERTASTE DRÜCKEN',
-    read:'▸ LEERTASTE ZUM LESEN',
-    next:'▸ WEITER — LEERTASTE',
-    got:'FRAGMENT GESICHERT:',
-    hold:'▶ GEDRÜCKT HALTEN',
-    pass:'«Egal wie schlimm — es geht vorbei.»',
-    walk:'▶ WEITERGEHEN',
-    endH:'SECOND BRAIN',
-    endSub:'NEUN FRAGMENTE · EIN NETZ',
-    brand:'Ich bin Challenger aus Biografie — zweimal wurde mir der Weg verwehrt, also hinterfrage ich Landkarten und baue erfinderisch eigene. Ich führe selbstbewusst von vorne: Massstab setzen, zuerst bei mir, ruhig bleiben, wenn es sonst niemand ist. Von Natur aus zugewandt baue ich Teams als Orte echter Zugehörigkeit — getrieben von Werten, nicht von Titeln: Prinzipien, Ehrlichkeit, Disziplin. Und ich bin geradeheraus mit dem, was ich denke — und lerne, es auch mit dem Schwierigen zu sein, weil Klarheit Fürsorge ist.',
-    credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI-UNTERSTÜTZUNG (CLAUDE)',
-    again:'LEERTASTE — NOCHMAL'
-  },
-  en:{
-    sub:'ONE LIFE IN NINE STATIONS',
-    keys:'<b>◀ ▶</b> walk &nbsp;·&nbsp; <b>SPACE</b> read<br>That is all it takes.',
-    start:'PRESS SPACE',
-    read:'▸ PRESS SPACE TO READ',
-    next:'▸ CONTINUE — SPACE',
-    got:'FRAGMENT SECURED:',
-    hold:'▶ HOLD DOWN',
-    pass:'“No matter how bad — it passes.”',
-    walk:'▶ KEEP WALKING',
-    endH:'SECOND BRAIN',
-    endSub:'NINE FRAGMENTS · ONE NETWORK',
-    brand:'I am a challenger by biography — twice the given path was denied to me, so I question maps and inventively build my own. I lead confident and from the front: setting the standard, holding myself to it first, staying calm when no one else is. Outgoing by nature, I build teams as places where people truly belong — driven by values, not titles: principles, honesty, discipline. And I am straightforward with what I think — now learning to be just as straightforward with what is hard to say, because clarity is care.',
-    credits:'REFLECTION ARTEFACT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>SOURCES: OWN LIFELINE REFLECTION · NEO-PI-3 (30 JUN 2026)<br>DESIGN AND CODE WITH AI ASSISTANCE (CLAUDE)',
-    again:'SPACE — AGAIN'
-  }
+  de:{ sub:'ZEHN STATIONEN · VIER LEHREN', keys:'<b>◀ ▶</b> gehen &nbsp;·&nbsp; <b>LEERTASTE</b> lesen<br>Mehr braucht es nicht.',
+       start:'LEERTASTE DRÜCKEN', read:'▸ LEERTASTE ZUM LESEN', next:'▸ WEITER — LEERTASTE',
+       got:'FRAGMENT:', hold:'▶ GEDRÜCKT HALTEN', pass:'«Egal wie schlimm — es geht vorbei.»',
+       joinB:'BIANCA GEHT MIT', joinI:'ISAC GEHT MIT', joinJ:'IARA GEHT MIT',
+       endH:'SECOND BRAIN', endSub:'VIERZEHN FRAGMENTE · EIN NETZ · VIER MENSCHEN',
+       brand:'Ich bin Challenger aus Biografie — zweimal wurde mir der Weg verwehrt, also hinterfrage ich Landkarten und baue erfinderisch eigene. Ich führe selbstbewusst von vorne: Massstab setzen, zuerst bei mir, ruhig bleiben, wenn es sonst niemand ist. Von Natur aus zugewandt baue ich Teams als Orte echter Zugehörigkeit — getrieben von Werten, nicht von Titeln: Prinzipien, Ehrlichkeit, Disziplin. Und ich bin geradeheraus mit dem, was ich denke — und lerne, es auch mit dem Schwierigen zu sein, weil Klarheit Fürsorge ist.',
+       credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI-UNTERSTÜTZUNG (CLAUDE)',
+       again:'LEERTASTE — NOCHMAL' },
+  en:{ sub:'TEN STATIONS · FOUR LESSONS', keys:'<b>◀ ▶</b> walk &nbsp;·&nbsp; <b>SPACE</b> read<br>That is all it takes.',
+       start:'PRESS SPACE', read:'▸ PRESS SPACE TO READ', next:'▸ CONTINUE — SPACE',
+       got:'FRAGMENT:', hold:'▶ HOLD DOWN', pass:'“No matter how bad — it passes.”',
+       joinB:'BIANCA JOINS YOU', joinI:'ISAC JOINS YOU', joinJ:'IARA JOINS YOU',
+       endH:'SECOND BRAIN', endSub:'FOURTEEN FRAGMENTS · ONE NETWORK · FOUR PEOPLE',
+       brand:'I am a challenger by biography — twice the given path was denied to me, so I question maps and inventively build my own. I lead confident and from the front: setting the standard, holding myself to it first, staying calm when no one else is. Outgoing by nature, I build teams as places where people truly belong — driven by values, not titles: principles, honesty, discipline. And I am straightforward with what I think — now learning to be just as straightforward with what is hard to say, because clarity is care.',
+       credits:'REFLECTION ARTEFACT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>SOURCES: OWN LIFELINE REFLECTION · NEO-PI-3 (30 JUN 2026)<br>DESIGN AND CODE WITH AI ASSISTANCE (CLAUDE)',
+       again:'SPACE — AGAIN' }
 };
 
-/* ═════════════ setup ═════════════ */
+/* the body grows with the life: height, clothes, gear */
+var AVATAR = [
+  { h:.56, cloth:'#3C5A78', skin:'#EFD9B4' },                    /* Kindheit  */
+  { h:.63, cloth:'#3C5A78', skin:'#EFD9B4' },                    /* 2011      */
+  { h:.76, cloth:'#2F6D74', skin:'#EED6AE', pack:true },         /* Australien*/
+  { h:.85, cloth:'#4A4E58', skin:'#EED6AE' },                    /* 2015      */
+  { h:1,   cloth:'#4E5742', skin:'#EACFA4', cap:'#5C6650' },     /* Offizier  */
+  { h:1,   cloth:'#6B563E', skin:'#E4C69A' },                    /* Angola    */
+  { h:1,   cloth:'#2E3450', skin:'#E9CFA6' },                    /* Hochzeit  */
+  { h:1,   cloth:'#2E3450', skin:'#E9CFA6' },                    /* Isac      */
+  { h:1,   cloth:'#2A2C3E', skin:'#DCC49E' },                    /* 2022      */
+  { h:1,   cloth:'#2F3C5C', skin:'#E9CFA6' }                     /* heute     */
+];
+
+var FOLK = {
+  bianca:{ h:.94, cloth:'#8A4E60', skin:'#F0DBB8', gap:26 },
+  isac:  { h:.44, cloth:'#3E5A72', skin:'#F2E0C0', gap:46 },
+  iara:  { h:.34, cloth:'#9A5E48', skin:'#F2E0C0', gap:64 }
+};
+
+/* ══════════════ setup ══════════════ */
 var cv=document.getElementById('g'), x=cv.getContext('2d');
 x.imageSmoothingEnabled=false;
-var VW=320, VH=180;
-var stage=document.getElementById('stage');
+var VW=320, VH=180, stage=document.getElementById('stage');
 var lang='de', sound=true;
 
 var GAP=300, X0=250;
-ST.forEach(function(s,i){ s.x = X0 + i*GAP; s.gy = (s.k==='peak') ? 98 : 141; });
-var WORLD = ST[ST.length-1].x + 320;
+ST.forEach(function(s,i){ s.x = (i<10) ? X0+i*GAP : X0+9*GAP+280+(i-10)*230; });
+var N=ST.length, WORLD=ST[N-1].x+300;
 
-var state='title';           /* title · play · dialog · storm · end */
-var camX=0, tt=0;
-var player={ x:60, y:0, dir:1, walk:0 };
+var state='title', camX=0, camLead=0, tt=0;
+var player={ x:60, y:104, vx:0, vy:0, walk:0, dir:1, air:false, hurt:false, fell:0 };
 var keys={l:false,r:false};
 var active=-1, read=[], stormT=0, endT=0, shake=0;
+var joined={bianca:false,isac:false,iara:false};
+var trail=[], dust=[];
 var stars=[];
 (function(){ var s=12345;
-  for(var i=0;i<90;i++){ s=(s*1103515245+12345)&0x7fffffff;
-    stars.push({ x:(s%WORLD), y:(s>>7)%92, b:((s>>13)%3)+1 }); } })();
+  for(var i=0;i<110;i++){ s=(s*1103515245+12345)&0x7fffffff;
+    stars.push({x:(s%WORLD), y:(s>>7)%88, b:((s>>13)%3)+1}); } })();
 
-function u(){ stage.style.setProperty('--u', (stage.clientWidth/VW)+'px'); }
+function u(){ stage.style.setProperty('--u',(stage.clientWidth/VW)+'px'); }
 u(); addEventListener('resize',u);
 if(matchMedia('(pointer:coarse)').matches) document.body.classList.add('touch');
 
-/* ═════════════ audio — tiny blips, no files ═════════════ */
 var AC=null;
 function blip(f,d,typ){
   if(!sound) return;
@@ -351,181 +416,278 @@ function blip(f,d,typ){
     o.connect(g); g.connect(AC.destination); o.start(); o.stop(AC.currentTime+d);
   }catch(e){}
 }
+function chord(base){ blip(base,.16); setTimeout(function(){blip(base*1.26,.18);},110); setTimeout(function(){blip(base*1.5,.30);},230); }
 
-/* ═════════════ terrain ═════════════ */
+/* ══════════════ terrain ══════════════ */
+function ease(t,seg){
+  if(seg==='cliff'){
+    /* the ground holds — and then it simply is not there any more */
+    if(t<.80) return (t/.80)*.04;                               /* es trägt noch */
+    if(t<.845) return .04+Math.pow((t-.80)/.045,1.1)*.94;       /* und dann nicht mehr */
+    return .98+((t-.845)/.155)*.02;                             /* unten */
+  }
+  if(seg==='climb'){
+    /* steepest right at the bottom, where you have the least left */
+    return Math.pow(t,.55);
+  }
+  return (1-Math.cos(t*Math.PI))/2;
+}
 function groundY(wx){
   if(wx<=ST[0].x) return ST[0].gy;
-  if(wx>=ST[8].x) return ST[8].gy;
-  for(var i=0;i<8;i++){
+  if(wx>=ST[N-1].x) return ST[N-1].gy;
+  for(var i=0;i<N-1;i++){
     if(wx>=ST[i].x && wx<=ST[i+1].x){
       var t=(wx-ST[i].x)/(ST[i+1].x-ST[i].x);
-      var e=(1-Math.cos(t*Math.PI))/2;
-      return ST[i].gy+(ST[i+1].gy-ST[i].gy)*e;
+      return ST[i].gy+(ST[i+1].gy-ST[i].gy)*ease(t,ST[i].seg);
     }
   }
   return 120;
 }
-/* which phase are we in, and how much of the next one bleeds in */
-function palette(){
-  var wx=player.x, a=ST[0].p, b=ST[0].p, t=0, i;
-  if(wx<=ST[0].x){ a=b=ST[0].p; }
-  else if(wx>=ST[8].x){ a=b=ST[8].p; }
-  else for(i=0;i<8;i++){
+function blend(){
+  var wx=player.x, a=ST[0], b=ST[0], t=0, i;
+  if(wx>=ST[N-1].x){ a=b=ST[N-1]; }
+  else if(wx>ST[0].x) for(i=0;i<N-1;i++){
     if(wx>=ST[i].x && wx<=ST[i+1].x){
-      a=ST[i].p; b=ST[i+1].p;
-      t=(wx-ST[i].x)/(ST[i+1].x-ST[i].x);
-      t=(1-Math.cos(t*Math.PI))/2; break;
+      a=ST[i]; b=ST[i+1];
+      t=(wx-ST[i].x)/(ST[i+1].x-ST[i].x); t=(1-Math.cos(t*Math.PI))/2; break;
     }
   }
-  function m(k,j){ return Math.round(a[k][j]+(b[k][j]-a[k][j])*t); }
-  return { sky:[m('sky',0),m('sky',1),m('sky',2)],
-           deep:[m('deep',0),m('deep',1),m('deep',2)],
-           gnd:[m('gnd',0),m('gnd',1),m('gnd',2)],
-           cap:[m('cap',0),m('cap',1),m('cap',2)],
-           star:a.star+(b.star-a.star)*t };
+  function m(k,j){ return Math.round(a.p[k][j]+(b.p[k][j]-a.p[k][j])*t); }
+  return { sky:[m('sky',0),m('sky',1),m('sky',2)], deep:[m('deep',0),m('deep',1),m('deep',2)],
+           gnd:[m('gnd',0),m('gnd',1),m('gnd',2)], cap:[m('cap',0),m('cap',1),m('cap',2)],
+           star:a.p.star+(b.p.star-a.p.star)*t, jag:a.p.jag+(b.p.jag-a.p.jag)*t,
+           motifA:a.motif, motifB:b.motif, mt:t };
 }
 function rgb(c){ return 'rgb('+c[0]+','+c[1]+','+c[2]+')'; }
+function shade(c,f){ return 'rgb('+Math.round(c[0]*f)+','+Math.round(c[1]*f)+','+Math.round(c[2]*f)+')'; }
 
-/* ═════════════ drawing ═════════════ */
+/* ══════════════ figures ══════════════ */
 function px(a,b,w,h,c){ x.fillStyle=c; x.fillRect(a|0,b|0,w,h); }
 
-function person(sx,sy,fr,opts){
-  opts=opts||{};
-  var skin=opts.skin||'#E8D3AE', cloth=opts.cloth||'#33406A', h=opts.h||1;
-  var bodyH=Math.round(6*h), legH=Math.round(4*h), headS=Math.round(4*h);
-  var top=sy-(headS+bodyH+legH);
+function person(sx,sy,fr,o,bob,hurt,air){
+  var h=o.h||1, skin=o.skin||'#E8D3AE', cloth=o.cloth||'#33406A';
+  var headS=Math.max(3,Math.round(4*h)), bodyH=Math.max(4,Math.round(6*h)), legH=Math.max(2,Math.round(4*h));
+  var top=sy-(headS+bodyH+legH)+(bob||0)+(hurt?1:0);
+  if(o.pack) px(sx-1,top+headS,2,bodyH-1,'#6A5230');
   px(sx+1,top,headS,headS,skin);
-  if(opts.cap){ px(sx,top-1,headS+2,1,opts.cap); px(sx+1,top-2,headS,1,opts.cap); }
+  if(o.cap){ px(sx,top-1,headS+2,1,o.cap); px(sx+1,top-2,headS,1,o.cap); }
   px(sx+1,top+headS,headS,bodyH,cloth);
-  var sw=(fr%2===0)?1:-1;
-  px(sx+1,top+headS+bodyH,1,legH,'#22293F');
-  px(sx+headS,top+headS+bodyH,1,legH-((sw>0)?1:0),'#22293F');
-  px(sx+(fr%2?0:headS+1),top+headS+1,1,Math.round(3*h),skin);
+  if(air){
+    /* nothing under the feet: legs tuck, arms go up */
+    px(sx+1,top+headS+bodyH,1,legH-1,'#20263A');
+    px(sx+headS,top+headS+bodyH,1,legH-1,'#20263A');
+    px(sx,top+headS-1,1,2,skin); px(sx+headS+1,top+headS-1,1,2,skin);
+    return;
+  }
+  px(sx+1,top+headS+bodyH,1,legH,'#20263A');
+  /* wounded: the trailing leg drags */
+  px(sx+headS,top+headS+bodyH,1,hurt?legH:(legH-((fr%2)?1:0)),'#20263A');
+  if(hurt) px(sx+headS+1,top+headS+bodyH+legH-1,1,1,'#20263A');
+  px(sx+((fr%2)?0:headS+1),top+headS+1,1,Math.max(1,Math.round(3*h)),skin);
 }
 
 function monolith(sx,gy,st,i){
-  var lit = read.indexOf(i)>=0;
-  var col = (st.k==='peak')?'#EDE4D0':'#D08A3C';
-  var glow = 1+Math.sin(tt*.07+i)*.5;
-  for(var r=3;r>0;r--){
-    x.globalAlpha=.030*glow*r;
-    px(sx-r,gy-16-r,5+r*2,16+r*2,col);
+  var lit=read.indexOf(i)>=0, r, glow=1+Math.sin(tt*.07+i)*.5;
+
+  if(st.act===2){
+    /* a mirror, not a stone: you meet the version of yourself that learned it */
+    var W2=13,H2=24, ty=gy-H2-2;
+    for(r=3;r>0;r--){ x.globalAlpha=.026*glow*r; px(sx-2-r,ty-r,W2+4+r*2,H2+2+r*2,'#CFE0F2'); }
+    x.globalAlpha=1;
+    px(sx-2,ty,W2+4,H2+2,lit?'#8FA9C6':'#3E4B66');           /* frame */
+    px(sx,ty+2,W2,H2-2,'#121A2A');                            /* glass  */
+    x.globalAlpha=lit?.95:.4;
+    var pastAv=AVATAR[st.mirror]||AVATAR[0];
+    person(sx+3,ty+H2-3,(tt/34|0),{h:(pastAv.h||1)*.62,cloth:pastAv.cloth,skin:pastAv.skin,cap:pastAv.cap});
+    x.globalAlpha=1;
+    x.globalAlpha=.20+Math.sin(tt*.05+i)*.08;                 /* glass sheen */
+    px(sx+1,ty+3,2,H2-4,'#DCEBFA'); x.globalAlpha=1;
+    if(lit) px(sx+5,ty-7-Math.sin(tt*.06+i)*2,3,3,'#E9C06A');
+    return;
   }
+
+  var col=(st.gy<120)?'#EDE4D0':'#D08A3C';
+  for(r=3;r>0;r--){ x.globalAlpha=.030*glow*r; px(sx-r,gy-16-r,5+r*2,16+r*2,col); }
   x.globalAlpha=1;
   px(sx,gy-16,5,16,lit?col:'#4A5472');
   px(sx+1,gy-14,3,2,lit?'#0A0E18':col);
-  if(lit){ var fy=gy-22-Math.sin(tt*.06+i)*2; px(sx+1,fy,3,3,'#E9C06A'); }
+  if(lit){ px(sx+1,gy-22-Math.sin(tt*.06+i)*2,3,3,'#E9C06A'); }
 }
 
+/* backdrop motifs — the world behind you changes with the chapter */
+function motif(kind,alpha,P){
+  if(kind==='none'||alpha<=.01) return;
+  x.globalAlpha=alpha;
+  var i,bx,h,w;
+  if(kind==='village'){
+    for(i=0;i<26;i++){
+      bx=((i*137 - camX*.42)%(VW+120)+VW+120)%(VW+120)-60;
+      h=9+((i*53)%9); w=8+((i*31)%7);
+      var by=groundY(camX*.42+i*137)-2;
+      px(bx,by-h,w,h,shade(P.cap,.30));
+      px(bx-1,by-h-2,w+2,2,shade(P.cap,.24));
+      if((i*7)%3!==0) px(bx+2,by-h+3,2,2,'rgba(240,200,130,.85)');
+    }
+  } else if(kind==='city'){
+    for(i=0;i<30;i++){
+      bx=((i*97 - camX*.38)%(VW+140)+VW+140)%(VW+140)-70;
+      h=16+((i*67)%34); w=7+((i*23)%6);
+      px(bx,124-h,w,h+40,shade(P.cap,.26));
+      for(var wy=0;wy<h-4;wy+=4){ if((i+wy)%3===0) px(bx+2,124-h+2+wy,1,2,'rgba(190,220,255,.55)'); }
+    }
+  } else if(kind==='posts'){
+    for(i=0;i<24;i++){
+      bx=((i*64 - camX*.46)%(VW+80)+VW+80)%(VW+80)-40;
+      var py2=groundY(camX*.46+i*64)-2;
+      px(bx,py2-20,1,20,shade(P.cap,.42));
+      px(bx,py2-20,4,3,shade(P.cap,.34));
+    }
+  } else if(kind==='grid'){
+    /* the plan laid over the will */
+    x.globalAlpha=alpha*.16;
+    var st2=24, gx, gy3;
+    for(gx=(-(camX*.5)%st2+st2)%st2; gx<VW; gx+=st2) px(gx,20,1,96,shade(P.cap,.9));
+    for(gy3=28; gy3<120; gy3+=st2) px(0,gy3,VW,1,shade(P.cap,.9));
+    x.globalAlpha=alpha;
+  } else if(kind==='wide'){
+    var mx=VW*.72, my=34;
+    x.globalAlpha=alpha*.5;
+    for(var r=9;r>0;r--){ x.globalAlpha=alpha*.035*r; px(mx-r,my-r,10+r*2,10+r*2,'#CFEAF2'); }
+    x.globalAlpha=alpha; px(mx,my,10,10,'#E8F6FA'); px(mx+6,my+2,3,3,shade(P.sky,1.1));
+  }
+  x.globalAlpha=1;
+}
+
+/* ══════════════ world ══════════════ */
 function drawWorld(){
-  var P=palette();
-  var sk=P.sky, dp=P.deep;
-  /* dark overhead, warm at the horizon — like every evening you walk into */
+  var P=blend(), i;
   for(var yy=0;yy<VH;yy++){
     var t=yy/118; if(t>1)t=1; t=t*t;
-    px(0,yy,VW,1,'rgb('+Math.round(dp[0]+(sk[0]-dp[0])*t)+','+
-                        Math.round(dp[1]+(sk[1]-dp[1])*t)+','+
-                        Math.round(dp[2]+(sk[2]-dp[2])*t)+')');
+    px(0,yy,VW,1,'rgb('+Math.round(P.deep[0]+(P.sky[0]-P.deep[0])*t)+','+
+                        Math.round(P.deep[1]+(P.sky[1]-P.deep[1])*t)+','+
+                        Math.round(P.deep[2]+(P.sky[2]-P.deep[2])*t)+')');
   }
-  var i;
   x.globalAlpha=P.star;
   for(i=0;i<stars.length;i++){
-    var s=stars[i], px1=((s.x-camX*.25)%WORLD+WORLD)%WORLD;
-    if(px1<VW) px(px1,s.y,s.b,1,'#DCE6F5');
+    var s=stars[i], sx1=((s.x-camX*.22)%WORLD+WORLD)%WORLD;
+    if(sx1<VW) px(sx1,s.y,s.b,1,'#DCE6F5');
   }
   x.globalAlpha=1;
 
-  /* far ridges */
-  var cp=P.cap;
+  motif(P.motifA,1-P.mt,P);
+  if(P.motifB!==P.motifA) motif(P.motifB,P.mt,P);
+
+  /* ridges — soft and rolling in good years, jagged in hard ones */
   for(var L=0;L<2;L++){
-    var par=(L===0)?.28:.5, amp=(L===0)?9:14, base=(L===0)?116:126;
-    var f=(L?.52:.34);
-    var col='rgb('+Math.round(cp[0]*f)+','+Math.round(cp[1]*f)+','+Math.round(cp[2]*f)+')';
+    var par=(L===0)?.28:.5, amp=((L===0)?9:14)*(1+P.jag*.5), base=(L===0)?118:128;
+    var col=shade(P.cap,L?.52:.34);
     for(i=0;i<VW;i++){
       var wxx=(camX*par+i)*.035;
-      var hh=base+Math.sin(wxx)*amp+Math.sin(wxx*2.3)*amp*.4;
+      var hh=base+Math.sin(wxx)*amp+Math.sin(wxx*2.3)*amp*.4
+             +Math.sin(wxx*7.1)*amp*.35*P.jag;
       px(i,hh,1,VH-hh,col);
     }
   }
-  /* the ground: this curve is the lifeline */
-  var gd='rgb('+Math.round(P.gnd[0]*.52)+','+Math.round(P.gnd[1]*.52)+','+Math.round(P.gnd[2]*.52)+')';
-  var cm='rgb('+Math.round(P.cap[0]*.62)+','+Math.round(P.cap[1]*.62)+','+Math.round(P.cap[2]*.62)+')';
+  /* the ground */
+  var gd=shade(P.gnd,.52), cm=shade(P.cap,.62);
   for(i=0;i<VW;i++){
     var gy=groundY(camX+i)|0;
     px(i,gy,1,VH-gy,rgb(P.gnd));
-    px(i,gy+16,1,VH-gy-16,gd);          /* deeper down, darker */
-    px(i,gy,1,1,rgb(P.cap));            /* the lit edge you walk on */
+    px(i,gy+16,1,VH-gy-16,gd);
+    px(i,gy,1,1,rgb(P.cap));
     px(i,gy+1,1,2,cm);
   }
-  /* the trail already walked, glowing faintly behind you */
+  /* the path already walked stays lit — others walk on it */
   for(i=0;i<VW;i++){
     var w2=camX+i;
-    if(w2<player.x){ x.globalAlpha=.10; px(i,groundY(w2)-1,1,1,'#E9C06A'); }
+    if(w2<player.x){ x.globalAlpha=.13; px(i,groundY(w2)-1,1,1,'#E9C06A'); }
   }
   x.globalAlpha=1;
 
-  for(i=0;i<9;i++){
-    var sxp=ST[i].x-camX;
-    if(sxp>-30&&sxp<VW+30) monolith(sxp,groundY(ST[i].x)|0,ST[i],i);
+  for(i=0;i<N;i++){
+    var mx2=ST[i].x-camX;
+    if(mx2>-30&&mx2<VW+30) monolith(mx2,groundY(ST[i].x)|0,ST[i],i);
   }
 
-  /* Iara's light — the one warm thing left in 2022 */
-  if(state==='storm'||read.indexOf(7)>=0){
-    var lx=ST[7].x+34-camX, ly=groundY(ST[7].x+34)-26;
-    if(lx>-20&&lx<VW+20){
-      var pu=1+Math.sin(tt*.05)*.35;
-      var lg=x.createRadialGradient(lx+1,ly+1,0,lx+1,ly+1,13*pu);
-      lg.addColorStop(0,'rgba(255,236,190,.85)');
-      lg.addColorStop(.35,'rgba(240,201,122,.34)');
-      lg.addColorStop(1,'rgba(240,201,122,0)');
-      x.fillStyle=lg; x.beginPath(); x.arc(lx+1,ly+1,13*pu,0,6.2832); x.fill();
-      px(lx,ly,2,2,'#FFF6DC');
-    }
+  /* the lamp you carry after the uniform — leadership, drawn as light */
+  var lampR=lightRadius();
+  if(lampR>2){
+    var lx=player.x-camX, ly=player.y-9;
+    var lg=x.createRadialGradient(lx+2,ly,0,lx+2,ly,lampR);
+    lg.addColorStop(0,'rgba(255,232,178,.30)');
+    lg.addColorStop(.45,'rgba(240,198,120,.11)');
+    lg.addColorStop(1,'rgba(240,198,120,0)');
+    x.fillStyle=lg; x.beginPath(); x.arc(lx+2,ly,lampR,0,6.2832); x.fill();
+  }
+  /* dust under the boots */
+  for(i=dust.length-1;i>=0;i--){
+    var d=dust[i];
+    x.globalAlpha=Math.max(0,d.l/26)*.5;
+    px(d.x-camX,d.y,1,1,'#E8DCC0');
+    x.globalAlpha=1;
   }
 
-  /* the player, and after the family station, two small ones behind */
-  var pxs=player.x-camX, pys=groundY(player.x)|0;
-  if(read.indexOf(6)>=0){
-    person(pxs-17,groundY(player.x-17)|0,(player.walk/9|0),{h:.62,cloth:'#4A3C6E',skin:'#EBD8B6'});
-    person(pxs-29,groundY(player.x-29)|0,(player.walk/11|0)+1,{h:.55,cloth:'#6B4A5E',skin:'#EBD8B6'});
-  }
-  person(pxs,pys,(player.walk/7|0),{ cap: read.indexOf(4)>=0 ? '#79AFC6' : null });
+  /* the people who walk with you */
+  drawFolk('iara'); drawFolk('isac'); drawFolk('bianca');
+
+  var av=AVATAR[Math.max(0,Math.min(AVATAR.length-1,maxRead()))];
+  var bob=(!player.air && Math.abs(player.vx)>.15 && (player.walk/6|0)%2===0)?-1:0;
+  person(player.x-camX,player.y|0,(player.walk/6|0),av,bob,player.hurt,player.air);
+}
+function drawFolk(name){
+  if(!joined[name]) return;
+  var f=FOLK[name], t=trailAt(f.gap);
+  if(!t) return;
+  var bob=(Math.abs(player.vx)>.15 && ((player.walk+f.gap)/6|0)%2===0)?-1:0;
+  person(t.x-camX,t.y|0,((player.walk+f.gap)/6|0),f,bob,player.hurt&&t.h,t.a);
+}
+function trailAt(gap){
+  var idx=trail.length-1-gap;
+  if(idx<0) return null;
+  return trail[idx];
+}
+function maxRead(){ var m=-1; for(var i=0;i<read.length;i++) if(read[i]>m) m=read[i]; return m; }
+function lightRadius(){
+  if(maxRead()<4) return 0;                       /* the lamp is lit at the officer station */
+  if(state==='storm') return 10+Math.max(0,(stormT-380))*.10;
+  return 40+Math.sin(tt*.04)*3;
 }
 
-/* ── the storm: 2022 rendered as damage ── */
+/* ══════════════ the storm ══════════════ */
 function drawStorm(){
-  var k=stormT/620;
-  var inten=Math.sin(Math.min(1,k)*Math.PI)*1.0+.25;
-  var i;
+  var k=stormT/620, inten=Math.sin(Math.min(1,k)*Math.PI)*1+.25, i;
+  if(stormT>380) inten*=Math.max(.25,1-(stormT-380)/240);
   for(i=0;i<9;i++){
     var yy=(Math.sin(tt*.31+i*2.7)*.5+.5)*VH|0, hh=1+((i*7+tt)%4);
-    x.globalAlpha=.20*inten;
-    px(0,yy,VW,hh,(i%2)?'#E24A40':'#3EBAE2');
-    x.globalAlpha=1;
+    x.globalAlpha=.20*inten; px(0,yy,VW,hh,(i%2)?'#E24A40':'#3EBAE2'); x.globalAlpha=1;
   }
   x.globalAlpha=.20*inten; px(0,0,VW,VH,'#12060A'); x.globalAlpha=1;
   for(i=0;i<40;i++){
-    var gx=((i*97+tt*3)%VW)|0, gy2=((i*53+tt)%VH)|0;
-    x.globalAlpha=.35*inten; px(gx,gy2,1,1,'#8899AA'); x.globalAlpha=1;
+    x.globalAlpha=.35*inten;
+    px(((i*97+tt*3)%VW)|0,((i*53+tt)%VH)|0,1,1,'#8899AA');
+    x.globalAlpha=1;
   }
 }
 
-/* ── ending: the fragments become a network ── */
-var NET=[[95,72],[74,48],[116,30],[150,54],[128,78],[172,84],[198,40],[226,68],[248,36]];
-var LNK=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[0,4],[1,3],[2,6],[5,7],[3,8],[6,8]];
+/* ══════════════ ending ══════════════ */
+/* ten stations of a life, four lessons from the module — one network */
+var NET=[[54,78],[38,52],[74,32],[104,58],[88,84],[128,92],[150,50],[172,72],[196,96],[214,44],
+         [244,34],[268,58],[252,88],[286,74]];
+var LNK=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[0,4],[1,3],[2,6],[5,7],[3,9],[6,9],[8,4],
+         [9,10],[10,11],[11,12],[12,13],[10,13],[11,13],[1,10],[4,11],[5,12],[7,12],[2,13]];
 function drawEnd(){
   px(0,0,VW,VH,'#080B14');
-  var i, shown=Math.min(9,Math.floor(endT/16));
+  var i, shown=Math.min(N,Math.floor(endT/15));
   x.globalAlpha=.5;
-  for(i=0;i<stars.length;i++){ var s=stars[i]; if(s.x%VW<VW) px(s.x%VW,s.y,1,1,'#26304A'); }
+  for(i=0;i<stars.length;i++){ var s=stars[i]; px(s.x%VW,s.y,1,1,'#26304A'); }
   x.globalAlpha=1;
   for(i=0;i<LNK.length;i++){
     var a=NET[LNK[i][0]], b=NET[LNK[i][1]];
     if(LNK[i][0]<shown && LNK[i][1]<shown){
-      var pr=Math.min(1,(endT-16*Math.max(LNK[i][0],LNK[i][1]))/14);
+      var pr=Math.min(1,(endT-15*Math.max(LNK[i][0],LNK[i][1]))/14);
       x.strokeStyle='rgba(233,192,106,.30)'; x.lineWidth=1;
       x.beginPath(); x.moveTo(a[0]+.5,a[1]+.5);
-      x.lineTo(a[0]+(b[0]-a[0])*pr+.5, a[1]+(b[1]-a[1])*pr+.5); x.stroke();
+      x.lineTo(a[0]+(b[0]-a[0])*pr+.5,a[1]+(b[1]-a[1])*pr+.5); x.stroke();
     }
   }
   for(i=0;i<shown;i++){
@@ -535,29 +697,47 @@ function drawEnd(){
   }
 }
 
-/* ═════════════ UI ═════════════ */
-var dlg=document.getElementById('dlg'), prompt=document.getElementById('prompt');
+/* ══════════════ UI ══════════════ */
+var dlg=document.getElementById('dlg'), prompt=document.getElementById('prompt'), toast=document.getElementById('toast');
 function fragsUI(){
-  var h='';
-  for(var i=0;i<9;i++) h+='<i class="'+(read.indexOf(i)>=0?'on':'')+'"></i>';
+  var h=''; for(var i=0;i<N;i++) h+='<i class="'+(read.indexOf(i)>=0?'on':'')+'"></i>';
   document.getElementById('frags').innerHTML=h;
+  document.getElementById('w-b').classList.toggle('on',joined.bianca);
+  document.getElementById('w-i').classList.toggle('on',joined.isac);
+  document.getElementById('w-j').classList.toggle('on',joined.iara);
+}
+var toastTimer=null;
+function say(msg){
+  toast.textContent=msg; toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){ toast.classList.remove('show'); },2600);
+}
+function join(name){
+  if(joined[name]) return;
+  joined[name]=true; fragsUI(); chord(520);
+  say(T[lang][name==='bianca'?'joinB':name==='isac'?'joinI':'joinJ']);
 }
 function openDlg(i){
   var s=ST[i];
   document.getElementById('d-yr').textContent=s.yr[lang];
   document.getElementById('d-t').textContent=s.t[lang];
-  document.getElementById('d-b').innerHTML=s.b[lang].split('\n').join('<br>');
+  document.getElementById('d-b').textContent=s.b[lang];
+  document.getElementById('d-i').textContent=s.i[lang];
+  document.getElementById('d-tr').textContent=s.tr[lang];
   document.getElementById('d-f').textContent=T[lang].got+' '+s.f[lang];
   document.getElementById('d-go').textContent=T[lang].next;
   dlg.classList.add('show'); prompt.classList.remove('show');
-  state='dialog';
+  state='dialog'; active=i;
   if(read.indexOf(i)<0){ read.push(i); fragsUI(); }
   blip(660,.09); setTimeout(function(){blip(880,.11);},90);
 }
 function closeDlg(){
   dlg.classList.remove('show');
-  if(active===7 && stormT===0){ state='storm'; stormT=1; blip(90,.5,'sawtooth'); return; }
-  if(active===8){ startEnd(); return; }
+  var s=ST[active];
+  if(s && s.spawn && s.spawn!=='iara') join(s.spawn);
+  if(active===9 && player.hurt){ player.hurt=false; chord(440); }   /* oben angekommen: aufrichten */
+  if(active===8 && stormT===0){ state='storm'; stormT=1; blip(90,.5,'sawtooth'); return; }
+  if(active===N-1){ startEnd(); return; }
   state='play';
 }
 function startEnd(){
@@ -565,9 +745,8 @@ function startEnd(){
   var t=T[lang];
   document.getElementById('e-h').textContent=t.endH;
   document.getElementById('e-sub').textContent=t.endSub;
-  var c=''; for(var i=0;i<9;i++) c+='<span>'+ST[i].f[lang]+'</span>';
+  var c=''; for(var i=0;i<N;i++) c+='<span>'+ST[i].f[lang]+'</span>';
   document.getElementById('e-chips').innerHTML=c;
-  document.getElementById('e-brand').textContent='';
   document.getElementById('e-credits').innerHTML=t.credits;
   document.getElementById('e-again').textContent=t.again;
   document.getElementById('end').classList.add('show');
@@ -576,11 +755,8 @@ function startEnd(){
 var typeTimer=null;
 function typeBrand(s){
   var el=document.getElementById('e-brand'), i=0;
-  clearInterval(typeTimer);
-  typeTimer=setInterval(function(){
-    i+=2; el.textContent=s.slice(0,i);
-    if(i>=s.length) clearInterval(typeTimer);
-  },16);
+  clearInterval(typeTimer); el.textContent='';
+  typeTimer=setInterval(function(){ i+=2; el.textContent=s.slice(0,i); if(i>=s.length) clearInterval(typeTimer); },16);
 }
 function chrome(){
   var t=T[lang];
@@ -592,18 +768,18 @@ function chrome(){
   if(state==='dialog'&&active>=0) openDlg(active);
 }
 function reset(){
-  read=[]; player.x=60; camX=0; active=-1; stormT=0; endT=0; state='title';
+  read=[]; player.x=60; player.y=ST[0].gy; player.vx=0; player.vy=0;
+  player.air=false; player.hurt=false; camX=0; camLead=0; active=-1; stormT=0; endT=0; state='title';
+  joined={bianca:false,isac:false,iara:false}; trail=[]; dust=[];
   document.getElementById('end').classList.remove('show');
   document.getElementById('title').classList.add('show');
-  dlg.classList.remove('show'); prompt.classList.remove('show'); fragsUI();
+  dlg.classList.remove('show'); prompt.classList.remove('show'); toast.classList.remove('show');
+  fragsUI();
 }
 
-/* ═════════════ input ═════════════ */
+/* ══════════════ input ══════════════ */
 function act(){
-  if(state==='title'){
-    document.getElementById('title').classList.remove('show');
-    state='play'; blip(520,.08); return;
-  }
+  if(state==='title'){ document.getElementById('title').classList.remove('show'); state='play'; blip(520,.08); return; }
   if(state==='dialog'){ closeDlg(); blip(420,.07); return; }
   if(state==='end'){ reset(); return; }
   if(state==='play'&&active>=0) openDlg(active);
@@ -619,11 +795,8 @@ addEventListener('keyup',function(e){
 });
 function hold(id,set){
   var b=document.getElementById(id);
-  ['pointerdown','pointerenter'].forEach(function(){});
   b.addEventListener('pointerdown',function(e){e.preventDefault();set(true);});
-  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
-    b.addEventListener(ev,function(){set(false);});
-  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ b.addEventListener(ev,function(){set(false);}); });
 }
 hold('p-l',function(v){keys.l=v;});
 hold('p-r',function(v){keys.r=v;});
@@ -635,52 +808,74 @@ stage.addEventListener('pointerdown',function(e){
 document.getElementById('b-de').onclick=function(){lang='de';chrome();};
 document.getElementById('b-en').onclick=function(){lang='en';chrome();};
 document.getElementById('b-snd').onclick=function(){
-  sound=!sound;
-  this.classList.toggle('on',sound);
-  this.textContent=sound?'♪':'✕';
+  sound=!sound; this.classList.toggle('on',sound); this.textContent=sound?'♪':'✕';
 };
-document.getElementById('b-snd').classList.add('on');
 
-/* ═════════════ loop ═════════════ */
+/* ══════════════ loop ══════════════ */
 function step(){
   tt++;
   if(state==='play'||state==='storm'){
-    var sp = (state==='storm') ? .55 : 1.35;
-    var moved=false;
-    if(keys.r && player.x<WORLD-40){ player.x+=sp; player.dir=1; moved=true; }
-    if(keys.l && player.x>30){ player.x-=sp; player.dir=-1; moved=true; }
-    if(moved) player.walk++;
-    camX = Math.max(0, Math.min(WORLD-VW, player.x-VW*0.42));
+    /* uphill costs you — and so does being hurt */
+    var slope=groundY(player.x+player.dir*3)-groundY(player.x);
+    var up=Math.max(0,-slope/3);
+    var fac=Math.max(.32,1/(1+up*1.1))*(player.hurt?.6:1)*(slope>1?1.12:1);
+    var top=((state==='storm')?.62:1.5)*fac, acc=.16*fac;
+    if(player.air){ acc*=.25; top*=1.1; }
+
+    if(keys.r){ player.vx=Math.min(top,player.vx+acc); player.dir=1; }
+    else if(keys.l){ player.vx=Math.max(-top,player.vx-acc); player.dir=-1; }
+    else player.vx*=player.air?.99:.72;
+    if(Math.abs(player.vx)<.02) player.vx=0;
+    player.x+=player.vx;
+    if(player.x<30) player.x=30;
+    if(player.x>WORLD-40) player.x=WORLD-40;
+
+    /* the ground can simply stop being there */
+    var gy2=groundY(player.x);
+    if(player.y<gy2-1.2){
+      player.air=true; player.vy+=.44; player.y+=player.vy;
+      if(player.y>=gy2){
+        if(player.vy>3.4){                       /* the landing that leaves a mark */
+          player.hurt=true; shake=Math.max(shake,7); blip(70,.42,'sawtooth');
+          for(var b=0;b<16;b++) dust.push({x:player.x+(Math.random()-.5)*14,y:gy2,l:34});
+        }
+        player.y=gy2; player.vy=0; player.air=false;
+      }
+    } else { player.y=gy2; player.vy=0; player.air=false; }
+
+    if(!player.air && Math.abs(player.vx)>.15){
+      player.walk += player.hurt ? ((tt%3)?1:0) : 1;   /* wounded: an uneven gait */
+      if(tt%(player.hurt?11:7)===0) dust.push({x:player.x-2*player.dir,y:player.y,l:26});
+    }
+    trail.push({x:player.x,y:player.y,a:player.air,h:player.hurt});
+    if(trail.length>900) trail.shift();
+    for(var q=dust.length-1;q>=0;q--){ dust[q].l--; if(dust[q].l<=0) dust.splice(q,1); }
+
+    camLead+=((player.dir*20*Math.min(1,Math.abs(player.vx)))-camLead)*.04;
+    camX=Math.max(0,Math.min(WORLD-VW,player.x-VW*0.42+camLead));
 
     if(state==='storm'){
       if(keys.r) stormT+=2.2; else stormT+=.25;
       shake=Math.max(0,(1-stormT/620))*2.2;
-      if(stormT>620){ state="play"; shake=0; blip(740,.22); }
+      if(stormT>380 && !joined.iara) join('iara');
+      if(stormT>620){ state='play'; shake=0; blip(740,.22); }
     } else {
       active=-1;
-      for(var i=0;i<9;i++){
-        if(Math.abs(player.x-ST[i].x)<26){ active=i; break; }
-      }
-      if(active>=0 && read.indexOf(active)<0){
-        prompt.textContent=T[lang].read; prompt.classList.add('show');
-      } else if(active>=0){
-        prompt.textContent=T[lang].read; prompt.classList.add('show');
-      } else prompt.classList.remove('show');
+      for(var i=0;i<N;i++){ if(Math.abs(player.x-ST[i].x)<26){ active=i; break; } }
+      if(active>=0){ prompt.textContent=T[lang].read; prompt.classList.add('show'); }
+      else prompt.classList.remove('show');
     }
   }
   if(state==='storm'){
-    prompt.textContent = (stormT>430) ? T[lang].pass : T[lang].hold;
+    prompt.textContent=(stormT>430)?T[lang].pass:T[lang].hold;
     prompt.classList.add('show');
   }
   if(state==='end') endT++;
 
-  /* ── render ── */
   x.save();
   if(shake>0) x.translate((Math.random()-.5)*shake|0,(Math.random()-.5)*shake|0);
-  if(state==='end') drawEnd();
-  else { drawWorld(); if(state==='storm') drawStorm(); }
+  if(state==='end') drawEnd(); else { drawWorld(); if(state==='storm') drawStorm(); }
   x.restore();
-
   requestAnimationFrame(step);
 }
 fragsUI(); chrome(); step();
