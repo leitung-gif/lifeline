@@ -1,0 +1,12 @@
+# local render/test scaffolding
+probe.html
+base.html
+shot-*.html
+png-*.png
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
