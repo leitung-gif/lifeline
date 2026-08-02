@@ -184,7 +184,7 @@
 
 /* ══════════════ ten stations · the ground you walk on is the curve ══════════════ */
 var ST = [
-  { gy:104, motif:'village', yr:{de:'KINDHEIT',en:'CHILDHOOD'},
+  { gy:104, motif:'table', fx:'motes', surf:'grass', yr:{de:'KINDHEIT',en:'CHILDHOOD'},
     t:{de:'Der grosse Tisch',en:'The big table'},
     b:{de:'Türkei, jeden Sommer. Onkel, Tanten, Cousins — dreissig Leute an einem Tisch, und für jeden ein Platz.',
        en:'Türkiye, every summer. Uncles, aunts, cousins — thirty people at one table, and a seat for every one of them.'},
@@ -195,7 +195,7 @@ var ST = [
     f:{de:'ZUGEHÖRIGKEIT',en:'BELONGING'},
     p:{ sky:[86,56,38], deep:[30,20,16], gnd:[100,68,44], cap:[156,114,72], star:.32, jag:.25 } },
 
-  { gy:138, motif:'none', yr:{de:'2011',en:'2011'},
+  { gy:138, motif:'gate', fx:'sleet', surf:'crack', yr:{de:'2011',en:'2011'},
     t:{de:'Das erste Nein',en:'The first No'},
     b:{de:'Der Notenschnitt reichte. Die Bezirksschule nahm mich trotzdem nicht — ohne Grund, ohne Begründung.',
        en:'My grades were good enough. The higher school track turned me down anyway — no reason, no explanation.'},
@@ -206,7 +206,7 @@ var ST = [
     f:{de:'EHRGEIZ',en:'AMBITION'},
     p:{ sky:[34,50,80], deep:[14,20,34], gnd:[44,58,88], cap:[78,100,145], star:.5, jag:.9 } },
 
-  { gy:92, motif:'wide', yr:{de:'2013',en:'2013'},
+  { gy:92, motif:'ocean', fx:'wind', surf:'grass', yr:{de:'2013',en:'2013'},
     t:{de:'Australien',en:'Australia'},
     b:{de:'Mit vierzehn allein ans andere Ende der Welt. Kein Netz, keine Eltern im Nebenzimmer, Schulabschluss in Eigenregie.',
        en:'At fourteen, alone to the other side of the world. No safety net, no parents next door, finishing school on my own.'},
@@ -217,7 +217,7 @@ var ST = [
     f:{de:'AUTONOMIE',en:'AUTONOMY'},
     p:{ sky:[48,102,118], deep:[16,40,54], gnd:[42,92,106], cap:[92,166,186], star:.14, jag:.15 } },
 
-  { gy:144, motif:'none', yr:{de:'2015',en:'2015'},
+  { gy:144, motif:'sold', fx:'dust', surf:'smooth', yr:{de:'2015',en:'2015'},
     t:{de:'Der verlorene Weg',en:'The lost path'},
     b:{de:'Siebzehn, orientierungslos, einfach gejobbt. Dann wird der Familienbetrieb verkauft — der Weg, den ich mir vorgestellt hatte, verschwindet mit einer Unterschrift.',
        en:'Seventeen, adrift, just taking jobs. Then the family business is sold — the path I had imagined disappears with one signature.'},
@@ -228,7 +228,7 @@ var ST = [
     f:{de:'ANTRIEB',en:'DRIVE'},
     p:{ sky:[46,48,54], deep:[20,21,24], gnd:[58,60,66], cap:[96,100,108], star:.09, jag:.55 } },
 
-  { gy:96, motif:'posts', yr:{de:'2017',en:'2017'},
+  { gy:96, motif:'masts', fx:'none', surf:'notch', yr:{de:'2017',en:'2017'},
     t:{de:'Offizier',en:'Officer'},
     b:{de:'Mit neunzehn Verantwortung für Männer, die älter sind als ich. Befehle, Druck, Nächte ohne Schlaf.',
        en:'At nineteen, responsible for men older than me. Orders, pressure, nights without sleep.'},
@@ -239,7 +239,7 @@ var ST = [
     f:{de:'FÜHRUNG',en:'LEADERSHIP'},
     p:{ sky:[38,54,78], deep:[14,22,34], gnd:[52,70,96], cap:[96,124,160], star:.44, jag:.2 } },
 
-  { gy:140, motif:'none', yr:{de:'ANGOLA',en:'ANGOLA'},
+  { gy:140, motif:'derrick', fx:'embers', surf:'crack', yr:{de:'ANGOLA',en:'ANGOLA'},
     t:{de:'Sechs Monate',en:'Six months'},
     b:{de:'Gefahr auf der Strasse, Rassismus im Alltag, sechs Monate weit weg von allem, was ich kannte.',
        en:'Danger in the street, racism in daily life, six months far from everything I knew.'},
@@ -250,7 +250,7 @@ var ST = [
     f:{de:'WURZELN',en:'ROOTS'},
     p:{ sky:[88,38,28], deep:[30,14,12], gnd:[90,48,34], cap:[152,78,52], star:.18, jag:.75 } },
 
-  { gy:88, motif:'village', spawn:'bianca', yr:{de:'2019',en:'2019'},
+  { gy:88, motif:'arch', fx:'petals', surf:'grass', spawn:'bianca', yr:{de:'2019',en:'2019'},
     t:{de:'Die Hochzeit',en:'The wedding'},
     b:{de:'Bianca. Der Tag, an dem ich aufgehört habe, allein zu rechnen.',
        en:'Bianca. The day I stopped calculating alone.'},
@@ -261,7 +261,7 @@ var ST = [
     f:{de:'BIANCA',en:'BIANCA'},
     p:{ sky:[92,64,36], deep:[32,24,14], gnd:[102,74,44], cap:[168,124,70], star:.28, jag:.2 } },
 
-  { gy:82, seg:'cliff', motif:'village', spawn:'isac', yr:{de:'2021',en:'2021'},
+  { gy:82, seg:'cliff', motif:'home', fx:'sparks', surf:'grass', spawn:'isac', yr:{de:'2021',en:'2021'},
     t:{de:'Isac',en:'Isac'},
     b:{de:'Isac kommt zur Welt. Aus dem Mann, der etwas erreichen will, wird einer, der etwas hinterlassen will.',
        en:'Isac is born. The man who wanted to achieve something becomes one who wants to leave something behind.'},
@@ -272,7 +272,7 @@ var ST = [
     f:{de:'ISAC',en:'ISAC'},
     p:{ sky:[96,70,40], deep:[34,26,16], gnd:[106,80,48], cap:[176,132,78], star:.3, jag:.15 } },
 
-  { gy:156, seg:'climb', motif:'none', spawn:'iara', yr:{de:'2022',en:'2022'},
+  { gy:156, seg:'climb', motif:'ruin', fx:'ash', surf:'rubble', spawn:'iara', yr:{de:'2022',en:'2022'},
     t:{de:'Der tiefste Punkt',en:'The deepest point'},
     b:{de:'Corona blockiert jede Einnahme, der rettende Auftrag platzt, die Reserven sind weg. Konkurs. Panikattacken.',
        en:'Covid blocks every income, the rescuing contract collapses, the reserves are gone. Bankruptcy. Panic attacks.'},
@@ -283,7 +283,7 @@ var ST = [
     f:{de:'WILLE',en:'WILL'},
     p:{ sky:[36,17,19], deep:[10,6,7], gnd:[40,27,35], cap:[74,50,56], star:.04, jag:1 } },
 
-  { gy:70, motif:'city', yr:{de:'HEUTE',en:'TODAY'},
+  { gy:70, motif:'city', fx:'updraft', surf:'grass', yr:{de:'HEUTE',en:'TODAY'},
     t:{de:'Der eigene Weg',en:'My own path'},
     b:{de:'Philosophie-Bachelor, EMBA, Harvard im Blick, Lorien im Aufbau. Und drei Menschen, die mitgehen.',
        en:'Philosophy BA, EMBA, Harvard in sight, Lorien in the making. And three people walking with me.'},
@@ -295,7 +295,7 @@ var ST = [
     p:{ sky:[46,70,108], deep:[16,26,44], gnd:[56,78,118], cap:[104,138,186], star:.55, jag:.2 } },
 
   /* ── zweiter Akt: das Modul. Der Boden wird flach, man geht durch Spiegel ── */
-  { gy:78, act:2, mirror:0, motif:'grid', yr:{de:'LEADING SELF',en:'LEADING SELF'},
+  { gy:78, act:2, mirror:0, motif:'grid', fx:'still', surf:'smooth', yr:{de:'LEADING SELF',en:'LEADING SELF'},
     t:{de:'Der Spiegel',en:'The mirror'},
     b:{de:'Tag 1: Persönlichkeit und Führung. Das NEO-PI-3 und die Lifeline nebeneinander gelegt — und plötzlich erklärt das eine das andere.',
        en:'Day 1: personality and leadership. The NEO-PI-3 and the lifeline laid side by side — and suddenly one explains the other.'},
@@ -306,7 +306,7 @@ var ST = [
     f:{de:'SELBSTKENNTNIS',en:'SELF-KNOWLEDGE'},
     p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } },
 
-  { gy:78, act:2, mirror:4, motif:'grid', yr:{de:'MACHT & WIRKUNG',en:'POWER & IMPACT'},
+  { gy:78, act:2, mirror:4, motif:'grid', fx:'still', surf:'smooth', yr:{de:'MACHT & WIRKUNG',en:'POWER & IMPACT'},
     t:{de:'Was ankommt',en:'What lands'},
     b:{de:'Tag 2: Macht als Motiv, und die Lücke zwischen Selbstbild und Ruf. Macht ist nicht das schmutzige Wort — es ist die Fähigkeit, andere wirksam zu machen.',
        en:'Day 2: power as a motive, and the gap between self-image and reputation. Power is not the dirty word — it is the ability to make others effective.'},
@@ -317,7 +317,7 @@ var ST = [
     f:{de:'WIRKUNG',en:'IMPACT'},
     p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } },
 
-  { gy:78, act:2, mirror:6, motif:'grid', yr:{de:'LEADING TEAMS',en:'LEADING TEAMS'},
+  { gy:78, act:2, mirror:6, motif:'grid', fx:'still', surf:'smooth', yr:{de:'LEADING TEAMS',en:'LEADING TEAMS'},
     t:{de:'Warm ist nicht ehrlich',en:'Warm is not honest'},
     b:{de:'Die Team-Simulation hat es gnadenlos gezeigt: Zusammenarbeit ist nicht die Abwesenheit von Konflikt. Harmonie kann ein Team genauso lähmen wie Streit.',
        en:'The team simulation showed it without mercy: collaboration is not the absence of conflict. Harmony can paralyse a team just as much as fighting.'},
@@ -328,7 +328,7 @@ var ST = [
     f:{de:'SICHERHEIT',en:'SAFETY'},
     p:{ sky:[72,94,126], deep:[26,34,52], gnd:[66,86,122], cap:[134,168,214], star:.30, jag:.05 } },
 
-  { gy:78, act:2, mirror:9, motif:'grid', yr:{de:'STILE',en:'STYLES'},
+  { gy:78, act:2, mirror:9, motif:'grid', fx:'still', surf:'smooth', yr:{de:'STILE',en:'STYLES'},
     t:{de:'Vorhand und Rückhand',en:'Forehand and backhand'},
     b:{de:'Tag 3, Goleman: sechs Führungsstile, und die Frage, welchen man automatisch spielt. Meiner ist Pacesetting — Tempo machen, Massstab setzen, vorangehen.',
        en:'Day 3, Goleman: six leadership styles, and the question of which one you play automatically. Mine is pacesetting — set the pace, set the standard, go first.'},
@@ -456,7 +456,52 @@ function blend(){
   return { sky:[m('sky',0),m('sky',1),m('sky',2)], deep:[m('deep',0),m('deep',1),m('deep',2)],
            gnd:[m('gnd',0),m('gnd',1),m('gnd',2)], cap:[m('cap',0),m('cap',1),m('cap',2)],
            star:a.p.star+(b.p.star-a.p.star)*t, jag:a.p.jag+(b.p.jag-a.p.jag)*t,
-           motifA:a.motif, motifB:b.motif, mt:t };
+           motifA:a.motif, motifB:b.motif, mt:t,
+           fx:(t<.5?a.fx:b.fx), surf:(t<.5?a.surf:b.surf) };
+}
+/* ── what the air does, per chapter ── */
+var parts=[];
+var FX={
+  motes:  {n:3, c:['#F6D79A','#E9C06A'], vy:[-.20,-.07], vx:[-.05,.05], life:[110,190], sway:.9},
+  sleet:  {n:5, c:['#AFC6E4','#8FA9C6'], vy:[.75,1.45],  vx:[-.30,-.08],life:[40,80],   sway:0 },
+  wind:   {n:4, c:['#CFE7F0','#9FC8D6'], vy:[-.05,.05],  vx:[1.5,3.0],  life:[26,52],   sway:0, streak:3},
+  dust:   {n:2, c:['#7E8087','#61636A'], vy:[-.03,.04],  vx:[.16,.42],  life:[110,200], sway:.3},
+  embers: {n:4, c:['#F0904A','#D8602A'], vy:[-.55,-.22], vx:[-.12,.18], life:[50,110],  sway:1.5},
+  petals: {n:3, c:['#EFB6C2','#D98CA0'], vy:[.16,.38],   vx:[-.16,.16], life:[130,230], sway:2.2},
+  sparks: {n:3, c:['#FFF0C8','#F6D79A'], vy:[-.7,-.30],  vx:[-.10,.10], life:[34,70],   sway:.5},
+  ash:    {n:6, c:['#8A8288','#5C565C'], vy:[.28,.62],   vx:[-.22,.06], life:[90,180],  sway:1.1},
+  updraft:{n:4, c:['#DCEBFA','#9FC0E4'], vy:[-.85,-.42], vx:[-.06,.06], life:[46,92],   sway:.4, streak:2}
+};
+function rnd(r){ return r[0]+Math.random()*(r[1]-r[0]); }
+function spawnFx(kind){
+  var f=FX[kind]; if(!f) return;
+  if(parts.length>150) return;
+  for(var k=0;k<f.n;k++){
+    if(Math.random()>.34) continue;
+    var wx0=camX-14+Math.random()*(VW+28);
+    var up=(f.vy[0]<0);
+    var y0=up ? groundY(wx0)-Math.random()*10 : -4+Math.random()*40;
+    parts.push({ x:wx0, y:y0, vx:rnd(f.vx), vy:rnd(f.vy),
+                 l:rnd(f.life), max:0, c:f.c[(Math.random()*f.c.length)|0],
+                 sw:f.sway||0, ph:Math.random()*6.3, st:f.streak||1 });
+    parts[parts.length-1].max=parts[parts.length-1].l;
+  }
+}
+function stepFx(){
+  for(var i=parts.length-1;i>=0;i--){
+    var p=parts[i];
+    p.x+=p.vx+(p.sw?Math.sin(tt*.045+p.ph)*p.sw*.16:0);
+    p.y+=p.vy; p.l--;
+    if(p.l<=0 || p.x<camX-40 || p.x>camX+VW+40 || p.y<-8 || p.y>VH+8) parts.splice(i,1);
+  }
+}
+function drawFx(){
+  for(var i=0;i<parts.length;i++){
+    var p=parts[i], a=Math.min(1,p.l/Math.max(1,p.max*.45));
+    x.globalAlpha=a*.85;
+    px(p.x-camX,p.y,p.st,1,p.c);
+    x.globalAlpha=1;
+  }
 }
 function rgb(c){ return 'rgb('+c[0]+','+c[1]+','+c[2]+')'; }
 function shade(c,f){ return 'rgb('+Math.round(c[0]*f)+','+Math.round(c[1]*f)+','+Math.round(c[2]*f)+')'; }
@@ -514,35 +559,156 @@ function monolith(sx,gy,st,i){
   if(lit){ px(sx+1,gy-22-Math.sin(tt*.06+i)*2,3,3,'#E9C06A'); }
 }
 
-/* backdrop motifs — the world behind you changes with the chapter */
+/* backdrop motifs — every station gets its own horizon */
+function wrapX(i,spacing,par,pad){
+  return ((i*spacing - camX*par)%(VW+pad)+VW+pad)%(VW+pad)-pad/2;
+}
 function motif(kind,alpha,P){
   if(kind==='none'||alpha<=.01) return;
   x.globalAlpha=alpha;
-  var i,bx,h,w;
-  if(kind==='village'){
-    for(i=0;i<26;i++){
-      bx=((i*137 - camX*.42)%(VW+120)+VW+120)%(VW+120)-60;
-      h=9+((i*53)%9); w=8+((i*31)%7);
-      var by=groundY(camX*.42+i*137)-2;
-      px(bx,by-h,w,h,shade(P.cap,.30));
-      px(bx-1,by-h-2,w+2,2,shade(P.cap,.24));
-      if((i*7)%3!==0) px(bx+2,by-h+3,2,2,'rgba(240,200,130,.85)');
+  var i,bx,h,w,by;
+
+  if(kind==='table'){
+    /* der grosse Tisch: ein langes gedecktes Band, viele kleine Gestalten daran */
+    var tY=Math.max(34,Math.min(140,(groundY(camX+VW/2)|0)-18));
+    px(0,tY,VW,2,shade(P.cap,.46));
+    for(i=0;i<40;i++){
+      bx=((i*17-camX*.34)%(VW+40)+VW+40)%(VW+40)-20;
+      px(bx,tY+2,1,7,shade(P.cap,.30));
+      if(i%2===0){
+        px(bx,tY-7,3,5,shade(P.cap,.34));                  /* Körper */
+        px(bx,tY-11,3,3,shade(P.cap,.40));                 /* Kopf   */
+      }
+      if(i%5===0) px(bx+1,tY-2,1,2,'rgba(255,214,140,.9)');/* Kerze  */
     }
-  } else if(kind==='city'){
+    for(i=0;i<7;i++){
+      bx=wrapX(i,120,.22,160); h=14+((i*37)%8); w=16+((i*29)%10);
+      px(bx,tY-h-12,w,h,shade(P.cap,.22));
+      px(bx+3,tY-h-8,3,3,'rgba(246,206,138,.8)');
+    }
+  }
+  else if(kind==='gate'){
+    /* das erste Nein: ein geschlossenes Tor, das nicht aufgeht */
+    for(i=0;i<5;i++){
+      bx=wrapX(i,320,.30,340);
+      by=groundY(camX*.30+i*320)-2;
+      px(bx,by-52,3,52,shade(P.cap,.44)); px(bx+46,by-52,3,52,shade(P.cap,.44));
+      px(bx,by-56,49,4,shade(P.cap,.38));
+      for(var b2=0;b2<9;b2++) px(bx+5+b2*5,by-48,1,46,shade(P.cap,.26));
+      px(bx+22,by-30,4,4,shade(P.cap,.5));                 /* Schloss */
+    }
+  }
+  else if(kind==='ocean'){
+    /* Australien: ein Horizont ohne Ende, Mond, Möwen */
+    var hz=Math.max(40,Math.min(150,(groundY(camX+VW/2)|0)-26));
+    px(0,hz,VW,VH-hz,shade(P.cap,.20));
+    for(i=0;i<VW;i+=2){
+      var wv=hz+Math.sin((i+tt*.6)*.09)*1.4+Math.sin((i-tt*.4)*.05)*1.2;
+      px(i,wv,2,1,shade(P.cap,.44));
+    }
+    var mx=VW*.74, my=30, mr=7;
+    var mg=x.createRadialGradient(mx,my,0,mx,my,mr*3.4);
+    mg.addColorStop(0,'rgba(216,238,246,.30)'); mg.addColorStop(.4,'rgba(180,214,228,.10)');
+    mg.addColorStop(1,'rgba(180,214,228,0)');
+    x.fillStyle=mg; x.beginPath(); x.arc(mx,my,mr*3.4,0,6.2832); x.fill();
+    x.fillStyle='#E8F6FA'; x.beginPath(); x.arc(mx,my,mr,0,6.2832); x.fill();
+    x.fillStyle=shade(P.sky,1.25); x.beginPath(); x.arc(mx+3,my-2,1.6,0,6.2832); x.fill();
+    x.beginPath(); x.arc(mx-2,my+3,1.2,0,6.2832); x.fill();
+    for(i=0;i<5;i++){
+      bx=wrapX(i,90,.16,120); var byy=44+((i*23)%18)+Math.sin(tt*.03+i)*2;
+      px(bx,byy,1,1,shade(P.cap,.7)); px(bx+1,byy-1,1,1,shade(P.cap,.7)); px(bx+2,byy,1,1,shade(P.cap,.7));
+    }
+  }
+  else if(kind==='sold'){
+    /* der verlorene Weg: der Betrieb steht leer, die Fenster sind dunkel */
+    for(i=0;i<4;i++){
+      bx=wrapX(i,300,.34,320);
+      by=groundY(camX*.34+i*300)-2;
+      h=30; w=52;
+      px(bx,by-h,w,h,shade(P.cap,.20));
+      px(bx-2,by-h-5,w+4,5,shade(P.cap,.26));
+      for(var fy=0;fy<3;fy++) for(var fx2=0;fx2<4;fx2++)
+        px(bx+6+fx2*11,by-h+6+fy*9,6,5,shade(P.cap,.10));
+      px(bx+18,by-h-14,16,9,shade(P.cap,.34));             /* Schild */
+      px(bx+20,by-h-11,12,1,shade(P.cap,.16));
+      px(bx+25,by-h-5,1,5,shade(P.cap,.28));
+    }
+  }
+  else if(kind==='masts'){
+    /* Offizier: Masten in exakt gleichem Abstand, Fahnen im gleichen Takt */
+    for(i=0;i<24;i++){
+      bx=wrapX(i,64,.46,80);
+      var py2=groundY(camX*.46+i*64)-2;
+      px(bx,py2-26,1,26,shade(P.cap,.46));
+      var fl=Math.sin(tt*.05+i*.4)*1;
+      px(bx+1,py2-26,7,4,shade(P.cap,.36));
+      px(bx+8,py2-26+fl,2,4,shade(P.cap,.30));
+    }
+  }
+  else if(kind==='derrick'){
+    /* Angola: harte Silhouetten, tiefe Sonne, kein Zuhause */
+    var sx2=VW*.24, sy2=96;
+    for(var r2=10;r2>0;r2--){ x.globalAlpha=alpha*.028*r2; px(sx2-r2,sy2-r2,14+r2*2,14+r2*2,'#E86A3A'); }
+    x.globalAlpha=alpha; px(sx2,sy2,14,14,'#F08A4A');
+    for(i=0;i<6;i++){
+      bx=wrapX(i,140,.36,160);
+      by=groundY(camX*.36+i*140)-2;
+      px(bx+9,by-40,2,40,shade(P.cap,.34));
+      px(bx,by-2,20,2,shade(P.cap,.30));
+      px(bx+2,by-26,16,2,shade(P.cap,.26));
+      px(bx+4,by-14,12,2,shade(P.cap,.26));
+      px(bx+8,by-46,4,6,shade(P.cap,.42));
+    }
+  }
+  else if(kind==='arch'){
+    /* die Hochzeit: ein Bogen und Lichterketten über dem Weg */
+    for(i=0;i<VW;i+=1){
+      var ly=26+Math.sin((i+camX*.3)*.035)*7;
+      px(i,ly,1,1,shade(P.cap,.30));
+      if((i+((camX*.3)|0))%14===0) px(i,ly+1,2,2,'rgba(255,216,150,.95)');
+    }
+    for(i=0;i<4;i++){
+      bx=wrapX(i,280,.32,300);
+      by=groundY(camX*.32+i*280)-2;
+      px(bx,by-40,3,40,shade(P.cap,.40)); px(bx+38,by-40,3,40,shade(P.cap,.40));
+      for(var a2=0;a2<40;a2++){
+        var ax=bx+3+a2, ay=by-40-Math.sin(a2/39*Math.PI)*13;
+        px(ax,ay,1,3,shade(P.cap,.40));
+        if(a2%7===0) px(ax,ay-3,2,2,'rgba(246,196,206,.85)');
+      }
+    }
+  }
+  else if(kind==='home'){
+    /* Isac: ein Haus, ein Fenster, in dem noch Licht brennt */
+    for(i=0;i<3;i++){
+      bx=wrapX(i,340,.30,360);
+      by=groundY(camX*.30+i*340)-2;
+      px(bx,by-30,44,30,shade(P.cap,.24));
+      for(var rf=0;rf<12;rf++) px(bx+rf*2,by-30-rf,44-rf*4,2,shade(P.cap,.30));
+      var gl=.72+Math.sin(tt*.024+i)*.22;
+      px(bx+16,by-20,10,9,'rgba(255,208,132,'+gl.toFixed(2)+')');
+      px(bx+20,by-20,2,9,shade(P.cap,.2));
+      px(bx+34,by-46,3,18,shade(P.cap,.26));
+    }
+  }
+  else if(kind==='ruin'){
+    /* 2022: was stand, steht nicht mehr */
+    for(i=0;i<9;i++){
+      bx=wrapX(i,110,.34,130);
+      h=10+((i*47)%26); w=6+((i*29)%9);
+      px(bx,150-h,w,h+30,shade(P.cap,.20));
+      px(bx+((i%2)?1:0),150-h-3,w-2,3,shade(P.cap,.14));
+    }
+  }
+  else if(kind==='city'){
     for(i=0;i<30;i++){
-      bx=((i*97 - camX*.38)%(VW+140)+VW+140)%(VW+140)-70;
+      bx=wrapX(i,97,.38,140);
       h=16+((i*67)%34); w=7+((i*23)%6);
       px(bx,124-h,w,h+40,shade(P.cap,.26));
       for(var wy=0;wy<h-4;wy+=4){ if((i+wy)%3===0) px(bx+2,124-h+2+wy,1,2,'rgba(190,220,255,.55)'); }
     }
-  } else if(kind==='posts'){
-    for(i=0;i<24;i++){
-      bx=((i*64 - camX*.46)%(VW+80)+VW+80)%(VW+80)-40;
-      var py2=groundY(camX*.46+i*64)-2;
-      px(bx,py2-20,1,20,shade(P.cap,.42));
-      px(bx,py2-20,4,3,shade(P.cap,.34));
-    }
-  } else if(kind==='grid'){
+  }
+  else if(kind==='grid'){
     /* the plan laid over the will */
     x.globalAlpha=alpha*.16;
     var st2=24, gx, gy3;
@@ -589,13 +755,38 @@ function drawWorld(){
     }
   }
   /* the ground */
-  var gd=shade(P.gnd,.52), cm=shade(P.cap,.62);
+  var gd=shade(P.gnd,.52), cm=shade(P.cap,.62), sf=P.surf;
+  var tuft=shade(P.cap,.86), dark=shade(P.gnd,.24);
   for(i=0;i<VW;i++){
-    var gy=groundY(camX+i)|0;
+    var wxi=camX+i, gy=groundY(wxi)|0;
     px(i,gy,1,VH-gy,rgb(P.gnd));
     px(i,gy+16,1,VH-gy-16,gd);
     px(i,gy,1,1,rgb(P.cap));
     px(i,gy+1,1,2,cm);
+
+    /* die Oberfläche selbst erzählt mit */
+    var hsh=((wxi*2654435761)>>>0)%997;
+    if(sf==='grass'){
+      if(hsh%7<3){
+        var sway=Math.sin(tt*.03+wxi*.21);
+        var th=1+(hsh%3);
+        px(i+(sway>.35?1:0),gy-th,1,th,tuft);
+      }
+    } else if(sf==='crack'){
+      if(hsh%23<2){
+        var dep=2+(hsh%6);
+        px(i,gy+1,1,dep,dark);
+        if(hsh%97<9) px(i+1,gy+2+(hsh%2),1,Math.max(1,dep-2),dark);
+      }
+    } else if(sf==='notch'){
+      if((wxi|0)%8===0) px(i,gy+1,1,2,dark);
+    } else if(sf==='rubble'){
+      if((wxi|0)%4===0){
+        var trm=(Math.sin(tt*.09+wxi*.6)>.72)?1:0;   /* der Boden zittert noch */
+        px(i,gy-1-trm,1+(((wxi*3)|0)%2),1,shade(P.cap,.5));
+        px(i,gy+2,1,2+(((wxi*5)|0)%4),dark);
+      }
+    }
   }
   /* the path already walked stays lit — others walk on it */
   for(i=0;i<VW;i++){
@@ -619,6 +810,7 @@ function drawWorld(){
     lg.addColorStop(1,'rgba(240,198,120,0)');
     x.fillStyle=lg; x.beginPath(); x.arc(lx+2,ly,lampR,0,6.2832); x.fill();
   }
+  drawFx();
   /* dust under the boots */
   for(i=dust.length-1;i>=0;i--){
     var d=dust[i];
@@ -768,7 +960,7 @@ function chrome(){
   if(state==='dialog'&&active>=0) openDlg(active);
 }
 function reset(){
-  read=[]; player.x=60; player.y=ST[0].gy; player.vx=0; player.vy=0;
+  read=[]; parts=[]; player.x=60; player.y=ST[0].gy; player.vx=0; player.vy=0;
   player.air=false; player.hurt=false; camX=0; camLead=0; active=-1; stormT=0; endT=0; state='title';
   joined={bianca:false,isac:false,iara:false}; trail=[]; dust=[];
   document.getElementById('end').classList.remove('show');
@@ -871,6 +1063,7 @@ function step(){
     prompt.classList.add('show');
   }
   if(state==='end') endT++;
+  if(state==='play'||state==='storm'){ spawnFx(blend().fx); stepFx(); }
 
   x.save();
   if(shake>0) x.translate((Math.random()-.5)*shake|0,(Math.random()-.5)*shake|0);
