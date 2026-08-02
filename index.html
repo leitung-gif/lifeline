@@ -161,7 +161,7 @@
   #rotate .ic{font-size:12vw;margin-bottom:6vw;color:var(--gold);letter-spacing:0;}
   #rotate .l1{font-size:3.4vw;letter-spacing:.10em;}
   #rotate .l2{font-size:2.7vw;color:var(--dim);margin-top:5vw;letter-spacing:.06em;}
-  @media (max-aspect-ratio: 13/10) and (max-width: 900px){ #rotate{display:flex;} }
+  @media (max-aspect-ratio: 13/10) and (max-width: 900px) and (pointer: coarse){ #rotate{display:flex;} }
 </style>
 </head>
 <body>
@@ -185,8 +185,8 @@
       </div>
     </div>
     <div id="tools">
-      <button class="btn on" id="b-de">DE</button>
-      <button class="btn" id="b-en">EN</button>
+      <button class="btn" id="b-de">DE</button>
+      <button class="btn on" id="b-en">EN</button>
       <button class="btn on" id="b-snd">♪</button>
     </div>
   </div>
@@ -212,7 +212,7 @@
   </div>
 
   <div class="ui screen" id="intro">
-    <div class="i-kicker" id="i-kicker">REFLEXIONSARTEFAKT · BRN 445 · ROCHESTER-BERN EMBA</div>
+    <div class="i-kicker" id="i-kicker">REFLECTION ARTEFACT · BRN 445 · ROCHESTER-BERN EMBA</div>
     <h2 id="i-h"></h2>
     <div class="i-body" id="i-body"></div>
     <div class="i-meta" id="i-meta"></div>
@@ -241,13 +241,13 @@ var ST = [
     t:{de:'Der grosse Tisch',en:'The big table'},
     b:{de:'Türkei, jeden Sommer. Onkel, Tanten, Cousins — dreissig Leute an einem Tisch, und für jeden ein Platz.',
        en:'Türkiye, every summer. Uncles, aunts, cousins — thirty people at one table, and a seat for every one of them.'},
-    i:{de:'Für jeden war ein Platz da. Das baue ich seither überall.',en:'There was a seat for everyone. I have been building that ever since.'},
-    tr:{de:'ZUGEHÖRIGKEIT · DAS URMOTIV',en:'BELONGING · THE ORIGIN MOTIVE'},
+    i:{de:'Für jeden war ein Platz da. Das baue ich seither überall.',en:'There was a seat for everyone. I have been building that table ever since.'},
+    tr:{de:'ZUGEHÖRIGKEIT · DAS URMOTIV',en:'BELONGING · ROOT MOTIVE'},
     f:{de:'ZUGEHÖRIGKEIT',en:'BELONGING'},
     p:{ sky:[250,188,120], deep:[74,102,150], gnd:[136,100,66], cap:[212,166,112], star:.06, jag:.25, day:.85, light:{t:'sun',x:.70,y:52,r:11,c:'#FFE6A8'} } },
 
   { gy:138, motif:'gate', fx:'sleet', surf:'crack', yr:{de:'2011',en:'2011'},
-    t:{de:'Das erste Nein',en:'The first No'},
+    t:{de:'Das erste Nein',en:'The first no'},
     b:{de:'Der Notenschnitt reichte. Die Bezirksschule nahm mich trotzdem nicht — ohne Grund, ohne Begründung.',
        en:'My grades were good enough. The higher school track turned me down anyway — no reason, no explanation.'},
     i:{de:'Der Schnitt reichte. Genommen haben sie mich trotzdem nicht.',en:'My grades were good enough. They still said no.'},
@@ -260,7 +260,7 @@ var ST = [
     b:{de:'Mit vierzehn allein ans andere Ende der Welt. Kein Netz, keine Eltern im Nebenzimmer, Schulabschluss in Eigenregie.',
        en:'At fourteen, alone to the other side of the world. No safety net, no parents next door, finishing school on my own.'},
     i:{de:'Niemand da, dem ich es recht machen musste. So frei war ich nie wieder.',en:'No one left to please. I was never that free again.'},
-    tr:{de:'OFFENHEIT FÜR NEUES  z +2.0',en:'OPENNESS TO ACTION  z +2.0'},
+    tr:{de:'OFFENHEIT FÜR NEUES  z +2.0',en:'OPENNESS TO ACTIONS  z +2.0'},
     f:{de:'AUTONOMIE',en:'AUTONOMY'},
     p:{ sky:[164,222,248], deep:[52,136,214], gnd:[238,210,158], cap:[255,244,206], star:0, jag:.12, day:1, light:{t:'sun',x:.66,y:26,r:13,c:'#FFFBE4',rays:1} } },
 
@@ -268,8 +268,8 @@ var ST = [
     t:{de:'Der verlorene Weg',en:'The lost path'},
     b:{de:'Siebzehn, orientierungslos, einfach gejobbt. Dann wird der Familienbetrieb verkauft — der Weg, den ich mir vorgestellt hatte, verschwindet mit einer Unterschrift.',
        en:'Seventeen, adrift, just taking jobs. Then the family business is sold — the path I had imagined disappears with one signature.'},
-    i:{de:'Übernehmen ging nicht mehr. Also habe ich angefangen zu bauen.',en:'Taking over was gone. So I started building.'},
-    tr:{de:'ZWEI NEIN · ZWEI MOTOREN',en:'TWO NO’S · TWO ENGINES'},
+    i:{de:'Übernehmen ging nicht mehr. Also habe ich angefangen zu bauen.',en:'There was nothing left to take over. So I started building.'},
+    tr:{de:'ZWEI NEIN · ZWEI MOTOREN',en:'TWO NOES · TWO ENGINES'},
     f:{de:'ANTRIEB',en:'DRIVE'},
     p:{ sky:[150,152,158], deep:[100,102,110], gnd:[108,110,116], cap:[148,150,158], star:0, jag:.55, day:.45, light:null } },
 
@@ -278,7 +278,7 @@ var ST = [
     b:{de:'Mit neunzehn Verantwortung für Männer, die älter sind als ich. Befehle, Druck, Nächte ohne Schlaf.',
        en:'At nineteen, responsible for men older than me. Orders, pressure, nights without sleep.'},
     i:{de:'Ich musste nie laut werden. Ab hier trage ich das Licht.',en:'I never had to raise my voice. From here I carry the light.'},
-    tr:{de:'DURCHSETZUNG  z +1.4 · REIZBARKEIT  z −2.7',en:'ASSERTIVENESS  z +1.4 · ANGER  z −2.7'},
+    tr:{de:'DURCHSETZUNG  z +1.4 · REIZBARKEIT  z −2.7',en:'ASSERTIVENESS  z +1.4 · ANGRY HOSTILITY  z −2.7'},
     f:{de:'FÜHRUNG',en:'LEADERSHIP'},
     p:{ sky:[196,222,244], deep:[62,120,184], gnd:[198,212,228], cap:[248,252,255], star:0, jag:.2, day:1, light:{t:'sun',x:.24,y:30,r:10,c:'#FFFDF0'} } },
 
@@ -286,8 +286,8 @@ var ST = [
     t:{de:'Die Hochzeit',en:'The wedding'},
     b:{de:'Bianca. Der Tag, an dem ich aufgehört habe, allein zu rechnen.',
        en:'Bianca. The day I stopped calculating alone.'},
-    i:{de:'Ab hier rechne ich nicht mehr allein.',en:'From here on I no longer count alone.'},
-    tr:{de:'MOTOR A · FAMILIE',en:'ENGINE A · FAMILY'},
+    i:{de:'Ab hier rechne ich nicht mehr allein.',en:'From here on, no decision is only mine.'},
+    tr:{de:'MOTOR A · FAMILIE',en:'ENGINE · FAMILY'},
     f:{de:'BIANCA',en:'BIANCA'},
     p:{ sky:[252,186,134], deep:[78,80,142], gnd:[126,96,72], cap:[208,160,114], star:.10, jag:.2, day:.7, light:{t:'sun',x:.20,y:56,r:12,c:'#FFD79A'} } },
 
@@ -314,7 +314,7 @@ var ST = [
     t:{de:'Iara',en:'Iara'},
     b:{de:'Iara kommt zur Welt — in Wochen, in denen schon alles bröckelt. Die Aufträge bleiben aus, die Reserven schmelzen.',
        en:'Iara is born — in weeks when everything is already crumbling. The contracts stop coming, the reserves melt away.'},
-    i:{de:'Das letzte Licht, bevor der Boden nachgab.',en:'The last light before the ground gave way.'},
+    i:{de:'Das letzte Licht, bevor der Boden nachgab.',en:'The last light. Then the ground gave way.'},
     tr:{de:'DAS LICHT · IHRES',en:'THE LIGHT · HERS'},
     f:{de:'IARA',en:'IARA'},
     p:{ sky:[182,122,112], deep:[52,54,92], gnd:[84,72,76], cap:[138,114,108], star:.28, jag:.5, day:.4, light:{t:'sun',x:.80,y:78,r:9,c:'#FFB98C'} } },
@@ -323,7 +323,7 @@ var ST = [
     t:{de:'Der tiefste Punkt',en:'The deepest point'},
     b:{de:'Der rettende Auftrag platzt, die Reserven sind weg, der Konkurs ist unumkehrbar. Panikattacken.',
        en:'The rescuing contract collapses, the reserves are gone, the bankruptcy is irreversible. Panic attacks.'},
-    i:{de:'Planen ging nicht. Weitergehen schon.',en:'Planning was impossible. Walking on was not.'},
+    i:{de:'Planen ging nicht. Weitergehen schon.',en:'I could not plan. I could only keep walking.'},
     tr:{de:'STRESSANFÄLLIGKEIT  z −1.3',en:'VULNERABILITY  z −1.3'},
     f:{de:'WILLE',en:'WILL'},
     p:{ sky:[46,20,24], deep:[14,9,12], gnd:[38,26,32], cap:[76,50,56], star:.05, jag:1, day:0, light:null } },
@@ -351,7 +351,7 @@ var ST = [
     t:{de:'Was ankommt',en:'What lands'},
     b:{de:'Tag 2: Macht als Motiv, und die Lücke zwischen Selbstbild und Ruf. Macht ist nicht das schmutzige Wort — es ist die Fähigkeit, andere wirksam zu machen.',
        en:'Day 2: power as a motive, and the gap between self-image and reputation. Power is not the dirty word — it is the ability to make others effective.'},
-    i:{de:'Mein Machtdefizit ist nicht Autorität. Es ist Klartext.',en:'My power deficit is not authority. It is candor.'},
+    i:{de:'Mein Machtdefizit ist nicht Autorität. Es ist Klartext.',en:'What I lack is not authority. It is candor.'},
     tr:{de:'DIREKTHEIT  z −1.1',en:'STRAIGHTFORWARDNESS  z −1.1'},
     f:{de:'WIRKUNG',en:'IMPACT'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } },
@@ -360,17 +360,17 @@ var ST = [
     t:{de:'Warm ist nicht ehrlich',en:'Warm is not honest'},
     b:{de:'Die Team-Simulation hat es gnadenlos gezeigt: Zusammenarbeit ist nicht die Abwesenheit von Konflikt. Harmonie kann ein Team genauso lähmen wie Streit.',
        en:'The team simulation showed it without mercy: collaboration is not the absence of conflict. Harmony can paralyse a team just as much as fighting.'},
-    i:{de:'Ich baue warme Räume. Ehrliche muss ich noch lernen.',en:'I build warm rooms. Honest ones I still have to learn.'},
+    i:{de:'Ich baue warme Räume. Ehrliche muss ich noch lernen.',en:'I build warm rooms. I still have to make them honest.'},
     tr:{de:'ALTRUISMUS  z +1.5 · HARMONIE  z +1.0',en:'ALTRUISM  z +1.5 · COMPLIANCE  z +1.0'},
     f:{de:'SICHERHEIT',en:'SAFETY'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } },
 
-  { gy:78, act:2, mirror:10, motif:'grid', fx:'still', surf:'smooth', yr:{de:'STILE',en:'STYLES'},
+  { gy:78, act:2, mirror:10, motif:'grid', fx:'still', surf:'smooth', yr:{de:'STILE',en:'LEADERSHIP STYLES'},
     t:{de:'Vorhand und Rückhand',en:'Forehand and backhand'},
     b:{de:'Tag 3, Goleman: sechs Führungsstile, und die Frage, welchen man automatisch spielt. Meiner ist Pacesetting — Tempo machen, Massstab setzen, vorangehen.',
        en:'Day 3, Goleman: six leadership styles, and the question of which one you play automatically. Mine is pacesetting — set the pace, set the standard, go first.'},
     i:{de:'Pacesetting skaliert mit meinen Stunden. Coaching verzinst sich.',en:'Pacesetting scales with my hours. Coaching compounds.'},
-    tr:{de:'VORHAND PACESETTING · RÜCKHAND COACHING',en:'FOREHAND PACESETTING · BACKHAND COACHING'},
+    tr:{de:'VORHAND PACESETTING · RÜCKHAND COACHING',en:'FOREHAND: PACESETTING · BACKHAND: COACHING'},
     f:{de:'REPERTOIRE',en:'REPERTOIRE'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } }
 ];
@@ -385,23 +385,25 @@ var T = {
        take2:'Mein Motor ist Wille, nicht System.', take2b:'Also baue ich Menschen und Strukturen um mich, die es sind.',
        take3:'Klartext ist Fürsorge.', take3b:'Mein grösster Hebel ist das schwierige Gespräch, früh geführt.',
        takeH:'WAS ICH MITNEHME', takeEnd:'WILLE × PLAN',
-       credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI-UNTERSTÜTZUNG (CLAUDE)',
+       credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI GEBAUT (CLAUDE) · INHALT UND REFLEXION VOLLSTÄNDIG VON MIR',
        again:'LEERTASTE — NOCHMAL',
+       introKick:'REFLEXIONSARTEFAKT · BRN 445 · ROCHESTER-BERN EMBA',
        introH:'WAS DAS HIER IST',
        intro:'Der Boden, über den du läufst, ist meine <b>Lifeline</b>.<br>Elf Stationen — danach vier <b>Spiegel</b> mit den Learnings aus dem Modul.',
        introMeta:'ELF STATIONEN · VIER LEHREN · RUND SIEBEN MINUTEN',
        introGo:'LEERTASTE — LOSGEHEN' },
   en:{ sub:'ELEVEN STATIONS · FOUR LESSONS', keys:'<b>◀ ▶</b> walk &nbsp;·&nbsp; <b>SPACE</b> read<br>That is all it takes.',
-       start:'PRESS SPACE', read:'▸ PRESS SPACE TO READ', next:'▸ CONTINUE — SPACE',
-       got:'FRAGMENT:', hold:'▶ HOLD DOWN', pass:'“No matter how bad — it passes.”',
-       joinB:'BIANCA JOINS YOU', joinI:'ISAC JOINS YOU', joinJ:'IARA JOINS YOU',
+       start:'PRESS SPACE', read:'▸ SPACE — READ', next:'▸ SPACE — CONTINUE',
+       got:'FRAGMENT:', hold:'▶ HOLD ▶ TO KEEP WALKING', pass:'“No matter how bad it gets — it passes.”',
+       joinB:'BIANCA WALKS WITH YOU', joinI:'ISAC WALKS WITH YOU', joinJ:'IARA WALKS WITH YOU',
        endH:'SECOND BRAIN', endSub:'FIFTEEN FRAGMENTS · ONE NETWORK · FOUR PEOPLE',
-       take1:'The valleys bear the load.', take1b:'Every capability I lead with today was folded in a low point.',
-       take2:'My engine is will, not system.', take2b:'So I build people and structures around me that are.',
-       take3:'Candor is care.', take3b:'My biggest lever is the hard conversation, held early.',
-       takeH:'WHAT I TAKE WITH ME', takeEnd:'WILL × PLAN',
-       credits:'REFLECTION ARTEFACT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>SOURCES: OWN LIFELINE REFLECTION · NEO-PI-3 (30 JUN 2026)<br>DESIGN AND CODE WITH AI ASSISTANCE (CLAUDE)',
+       take1:'The valleys bear the load.', take1b:'Every capability I lead with today was forged in a low point.',
+       take2:'My engine is will, not structure.', take2b:'So I put people and systems around me that supply it.',
+       take3:'Candor is care.', take3b:'My biggest lever is having the hard conversation early.',
+       takeH:'WHAT I TAKE AWAY', takeEnd:'WILL × PLAN',
+       credits:'REFLECTION ARTEFACT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>SOURCES: MY LIFELINE REFLECTION · NEO-PI-3 (30 JUN 2026)<br>VISUAL DESIGN AND CODE BUILT WITH AI (CLAUDE) · STORY AND REFLECTION ENTIRELY MY OWN',
        again:'SPACE — AGAIN',
+       introKick:'REFLECTION ARTEFACT · BRN 445 · ROCHESTER-BERN EMBA',
        introH:'WHAT THIS IS',
        intro:'The ground you walk on is my <b>lifeline</b>.<br>Eleven stations — then four <b>mirrors</b> with the lessons from the module.',
        introMeta:'ELEVEN STATIONS · FOUR LESSONS · ABOUT SEVEN MINUTES',
@@ -1489,6 +1491,7 @@ function chrome(){
   document.getElementById('t-sub').textContent=t.sub;
   document.getElementById('t-keys').innerHTML=t.keys;
   document.getElementById('t-start').textContent=t.start;
+  document.getElementById('i-kicker').textContent=t.introKick;
   document.getElementById('i-h').textContent=t.introH;
   document.getElementById('i-body').innerHTML=t.intro;
   document.getElementById('i-meta').textContent=t.introMeta;
@@ -1551,6 +1554,17 @@ document.getElementById('b-snd').onclick=function(){
 };
 
 /* ══════════════ loop ══════════════ */
+var _prev=0, _lag=0, FRAME=1000/60;
+function frame(ts){
+  requestAnimationFrame(frame);
+  ts=ts||0;
+  if(_prev===0){ _prev=ts; step(); return; }
+  var dt=ts-_prev; _prev=ts;
+  if(dt>200) dt=200;              /* tab was in the background */
+  _lag+=dt;
+  var guard=0;
+  while(_lag>=FRAME && guard<3){ _lag-=FRAME; step(); guard++; }
+}
 function step(){
   tt++;
   if(state==='play'||state==='storm'){
@@ -1622,9 +1636,8 @@ function step(){
   if(shake>0) x.translate((Math.random()-.5)*shake|0,(Math.random()-.5)*shake|0);
   if(state==='end') drawEnd(); else { drawWorld(); if(state==='storm') drawStorm(); }
   x.restore();
-  requestAnimationFrame(step);
 }
-fragsUI(); chrome(); preUI(); step();
+fragsUI(); chrome(); preUI(); step(); requestAnimationFrame(frame);
 })();
 </script>
 </body>
