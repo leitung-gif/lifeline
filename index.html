@@ -65,12 +65,17 @@
   #d-t{font-size:calc(var(--u)*6.4);letter-spacing:calc(var(--u)*.4);margin-top:calc(var(--u)*2);color:var(--bone);}
   #d-b{font-size:calc(var(--u)*4.2);line-height:1.62;margin-top:calc(var(--u)*3);color:#C3CBDC;}
   #d-i{
-    font-size:calc(var(--u)*4.2);line-height:1.62;margin-top:calc(var(--u)*3.4);
-    color:var(--gold);border-left:calc(var(--u)*1) solid rgba(233,192,106,.42);
-    padding-left:calc(var(--u)*4);
+    font-size:calc(var(--u)*5.2);line-height:1.5;margin-top:calc(var(--u)*3.2);
+    color:#DCE3EE;font-family:var(--mono);letter-spacing:calc(var(--u)*.2);
   }
-  #d-tr{margin-top:calc(var(--u)*3.4);font-size:calc(var(--u)*3.5);color:var(--dim);letter-spacing:calc(var(--u)*.4);}
-  #d-f{margin-top:calc(var(--u)*2.4);font-size:calc(var(--u)*4);letter-spacing:calc(var(--u)*1.1);color:var(--gold);}
+  #d-tr{
+    margin-top:calc(var(--u)*4);display:inline-block;
+    font-size:calc(var(--u)*3.1);color:var(--gold);
+    letter-spacing:calc(var(--u)*1.1);
+    border:calc(var(--u)*.8) solid rgba(233,192,106,.34);
+    padding:calc(var(--u)*1.2) calc(var(--u)*2.6);
+  }
+  #d-f{margin-top:calc(var(--u)*3);font-size:calc(var(--u)*3.4);letter-spacing:calc(var(--u)*1.1);color:var(--dim);}
   #d-go{margin-top:calc(var(--u)*3);font-size:calc(var(--u)*3.7);letter-spacing:calc(var(--u)*1);color:var(--dimmer);}
   .blink{animation:bl 1.05s steps(2,end) infinite;}
   @keyframes bl{0%,50%{opacity:1}50.01%,100%{opacity:.15}}
@@ -236,10 +241,8 @@ var ST = [
     t:{de:'Der grosse Tisch',en:'The big table'},
     b:{de:'Türkei, jeden Sommer. Onkel, Tanten, Cousins — dreissig Leute an einem Tisch, und für jeden ein Platz.',
        en:'Türkiye, every summer. Uncles, aunts, cousins — thirty people at one table, and a seat for every one of them.'},
-    i:{de:'Ich wusste damals nicht, dass ich den Rest meines Lebens damit verbringen würde, diesen Tisch nachzubauen.',
-       en:'I did not know then that I would spend the rest of my life rebuilding that table.'},
-    tr:{de:'Zugehörigkeit wird zum Urmotiv — älter als jedes Ziel',
-        en:'Belonging becomes the origin motive — older than any goal'},
+    i:{de:'Zugehörigkeit. Ich baue sie seither überall nach.',en:'Belonging. I have been rebuilding it ever since.'},
+    tr:{de:'ZUGEHÖRIGKEIT · DAS URMOTIV',en:'BELONGING · THE ORIGIN MOTIVE'},
     f:{de:'ZUGEHÖRIGKEIT',en:'BELONGING'},
     p:{ sky:[250,188,120], deep:[74,102,150], gnd:[136,100,66], cap:[212,166,112], star:.06, jag:.25, day:.85, light:{t:'sun',x:.70,y:52,r:11,c:'#FFE6A8'} } },
 
@@ -247,10 +250,8 @@ var ST = [
     t:{de:'Das erste Nein',en:'The first No'},
     b:{de:'Der Notenschnitt reichte. Die Bezirksschule nahm mich trotzdem nicht — ohne Grund, ohne Begründung.',
        en:'My grades were good enough. The higher school track turned me down anyway — no reason, no explanation.'},
-    i:{de:'Da habe ich gelernt: Leistung allein schützt dich nicht. Und ich habe beschlossen, nie wieder um Erlaubnis zu fragen, wer ich werden darf.',
-       en:'That is where I learned: performance alone does not protect you. And I decided never again to ask permission for who I am allowed to become.'},
-    tr:{de:'Leistungsstreben z +2.7 — hier bekommt der Ehrgeiz seinen Zünder',
-        en:'Achievement striving z +2.7 — here the ambition gets its fuse'},
+    i:{de:'Leistung schützt nicht, wenn ein System nein sagt.',en:'Performance does not protect you when a system says no.'},
+    tr:{de:'LEISTUNGSSTREBEN  z +2.7',en:'ACHIEVEMENT STRIVING  z +2.7'},
     f:{de:'EHRGEIZ',en:'AMBITION'},
     p:{ sky:[146,154,170], deep:[92,100,118], gnd:[84,90,102], cap:[126,134,150], star:0, jag:.9, day:.45, light:null } },
 
@@ -258,10 +259,8 @@ var ST = [
     t:{de:'Australien',en:'Australia'},
     b:{de:'Mit vierzehn allein ans andere Ende der Welt. Kein Netz, keine Eltern im Nebenzimmer, Schulabschluss in Eigenregie.',
        en:'At fourteen, alone to the other side of the world. No safety net, no parents next door, finishing school on my own.'},
-    i:{de:'Zum ersten Mal war niemand da, dem ich es recht machen musste. Ich war nie wieder so frei — und nie wieder so sicher, wer ich bin.',
-       en:'For the first time there was no one to please. I was never that free again — and never that certain of who I am.'},
-    tr:{de:'Offenheit für Neues z +2.0 · Autonomie wird Identität',
-        en:'Openness to new action z +2.0 · autonomy becomes identity'},
+    i:{de:'Am meisten ich selbst, wenn frei und selbstbestimmt.',en:'Most myself when free and self-determined.'},
+    tr:{de:'OFFENHEIT FÜR NEUES  z +2.0',en:'OPENNESS TO ACTION  z +2.0'},
     f:{de:'AUTONOMIE',en:'AUTONOMY'},
     p:{ sky:[164,222,248], deep:[52,136,214], gnd:[238,210,158], cap:[255,244,206], star:0, jag:.12, day:1, light:{t:'sun',x:.66,y:26,r:13,c:'#FFFBE4',rays:1} } },
 
@@ -269,10 +268,8 @@ var ST = [
     t:{de:'Der verlorene Weg',en:'The lost path'},
     b:{de:'Siebzehn, orientierungslos, einfach gejobbt. Dann wird der Familienbetrieb verkauft — der Weg, den ich mir vorgestellt hatte, verschwindet mit einer Unterschrift.',
        en:'Seventeen, adrift, just taking jobs. Then the family business is sold — the path I had imagined disappears with one signature.'},
-    i:{de:'Das zweite Nein. Übernehmen war keine Option mehr. Also blieb nur bauen — und diesmal etwas, das mir niemand wegnehmen kann.',
-       en:'The second No. Taking over was no longer an option. So building was all that was left — and this time something no one can take from me.'},
-    tr:{de:'Aus zwei Nein werden zwei Motoren: das Eigene bauen, das Verwehrte zurückholen',
-        en:'Two No’s become two engines: build my own, reclaim what was withheld'},
+    i:{de:'Übernehmen ging nicht mehr. Also bauen.',en:'Taking over was no longer possible. So: build.'},
+    tr:{de:'ZWEI NEIN · ZWEI MOTOREN',en:'TWO NO’S · TWO ENGINES'},
     f:{de:'ANTRIEB',en:'DRIVE'},
     p:{ sky:[150,152,158], deep:[100,102,110], gnd:[108,110,116], cap:[148,150,158], star:0, jag:.55, day:.45, light:null } },
 
@@ -280,10 +277,8 @@ var ST = [
     t:{de:'Offizier',en:'Officer'},
     b:{de:'Mit neunzehn Verantwortung für Männer, die älter sind als ich. Befehle, Druck, Nächte ohne Schlaf.',
        en:'At nineteen, responsible for men older than me. Orders, pressure, nights without sleep.'},
-    i:{de:'Ich habe gemerkt: Ich muss nicht laut werden, damit es zählt. Die Ruhe war keine Taktik, sie war einfach da. Von hier an trage ich das Licht, in dem andere gehen.',
-       en:'I noticed: I do not need volume for it to count. The calm was not tactics, it was simply there. From here on I carry the light that others walk in.'},
-    tr:{de:'Durchsetzung z +1.4 bei Reizbarkeit z −2.7 — Autorität ohne Hitze',
-        en:'Assertiveness z +1.4 with anger z −2.7 — authority without heat'},
+    i:{de:'Ruhe ist keine Taktik. Ab hier trage ich das Licht.',en:'Calm is not tactics. From here I carry the light.'},
+    tr:{de:'DURCHSETZUNG  z +1.4 · REIZBARKEIT  z −2.7',en:'ASSERTIVENESS  z +1.4 · ANGER  z −2.7'},
     f:{de:'FÜHRUNG',en:'LEADERSHIP'},
     p:{ sky:[196,222,244], deep:[62,120,184], gnd:[198,212,228], cap:[248,252,255], star:0, jag:.2, day:1, light:{t:'sun',x:.24,y:30,r:10,c:'#FFFDF0'} } },
 
@@ -291,10 +286,8 @@ var ST = [
     t:{de:'Die Hochzeit',en:'The wedding'},
     b:{de:'Bianca. Der Tag, an dem ich aufgehört habe, allein zu rechnen.',
        en:'Bianca. The day I stopped calculating alone.'},
-    i:{de:'Ich hatte bis dahin alles für mich gebaut. Ab jetzt gab es einen Grund, der grösser war als mein Ehrgeiz — und einen Menschen, der mich hält, wenn der Ehrgeiz nicht reicht.',
-       en:'Until then I had built everything for myself. From now on there was a reason bigger than my ambition — and a person who holds me when ambition is not enough.'},
-    tr:{de:'Motor A schaltet ein: der Familie ein gutes Leben bauen',
-        en:'Engine A switches on: build a good life for the family'},
+    i:{de:'Ab jetzt gibt es einen Grund, der grösser ist als mein Ehrgeiz.',en:'Now there is a reason bigger than my ambition.'},
+    tr:{de:'MOTOR A · FAMILIE',en:'ENGINE A · FAMILY'},
     f:{de:'BIANCA',en:'BIANCA'},
     p:{ sky:[252,186,134], deep:[78,80,142], gnd:[126,96,72], cap:[208,160,114], star:.10, jag:.2, day:.7, light:{t:'sun',x:.20,y:56,r:12,c:'#FFD79A'} } },
 
@@ -302,10 +295,8 @@ var ST = [
     t:{de:'Isac',en:'Isac'},
     b:{de:'Isac kommt zur Welt. Aus dem Mann, der etwas erreichen will, wird einer, der etwas hinterlassen will.',
        en:'Isac is born. The man who wanted to achieve something becomes one who wants to leave something behind.'},
-    i:{de:'Zum ersten Mal denke ich in Jahrzehnten statt in Quartalen. Und zum ersten Mal habe ich Angst — nicht um mich, sondern davor, ihm zu wenig zu sein.',
-       en:'For the first time I think in decades instead of quarters. And for the first time I am afraid — not for myself, but of not being enough for him.'},
-    tr:{de:'Der Massstab wird länger als ein Leben',
-        en:'The yardstick grows longer than one lifetime'},
+    i:{de:'Zum ersten Mal denke ich in Jahrzehnten.',en:'For the first time I think in decades.'},
+    tr:{de:'MASSSTAB · LÄNGER ALS EIN LEBEN',en:'YARDSTICK · LONGER THAN ONE LIFE'},
     f:{de:'ISAC',en:'ISAC'},
     p:{ sky:[252,216,182], deep:[110,146,194], gnd:[140,124,102], cap:[216,188,152], star:.04, jag:.15, day:.85, light:{t:'sun',x:.30,y:44,r:11,c:'#FFF0C8'} } },
 
@@ -313,10 +304,8 @@ var ST = [
     t:{de:'Angola',en:'Angola'},
     b:{de:'Sechs Monate Angola. Gefahr auf der Strasse, Rassismus im Alltag — und zuhause alles, was ich gerade erst aufgebaut hatte.',
        en:'Six months in Angola. Danger in the street, racism in daily life — and back home everything I had only just built.'},
-    i:{de:'Ich war noch nie so wenig zuhause, und nie war Zuhause so viel wert. Erst da habe ich verstanden: Den Tisch aus meiner Kindheit finde ich nicht, ich muss ihn bauen — und dann auch dort sein.',
-       en:'I had never been so little at home, and home had never been worth so much. Only there did I understand: I do not find that childhood table, I have to build it — and then actually be there.'},
-    tr:{de:'Zugehörigkeit wird Absicht statt Zufall',
-        en:'Belonging becomes intent instead of accident'},
+    i:{de:'Zuhause finde ich nicht. Ich muss es bauen.',en:'I do not find home. I have to build it.'},
+    tr:{de:'ZUGEHÖRIGKEIT · ABSICHT STATT ZUFALL',en:'BELONGING · INTENT, NOT ACCIDENT'},
     f:{de:'WURZELN',en:'ROOTS'},
     p:{ sky:[228,158,88], deep:[158,88,48], gnd:[146,86,50], cap:[204,132,78], star:0, jag:.8, day:.8, light:{t:'sun',x:.22,y:64,r:14,c:'#FFC070'} } },
 
@@ -325,10 +314,8 @@ var ST = [
     t:{de:'Iara',en:'Iara'},
     b:{de:'Iara kommt zur Welt — in Wochen, in denen schon alles bröckelt. Die Aufträge bleiben aus, die Reserven schmelzen.',
        en:'Iara is born — in weeks when everything is already crumbling. The contracts stop coming, the reserves melt away.'},
-    i:{de:'Sie war da, bevor der Boden nachgab. Ich wusste damals noch nicht, dass sie der Grund sein würde, warum ich wieder aufstehe.',
-       en:'She was there before the ground gave way. I did not know yet that she would be the reason I get back up.'},
-    tr:{de:'Das Licht, das ich von hier an trage, ist ihres',
-        en:'The light I carry from here on is hers'},
+    i:{de:'Das letzte Licht, bevor der Boden nachgab.',en:'The last light before the ground gave way.'},
+    tr:{de:'DAS LICHT · IHRES',en:'THE LIGHT · HERS'},
     f:{de:'IARA',en:'IARA'},
     p:{ sky:[182,122,112], deep:[52,54,92], gnd:[84,72,76], cap:[138,114,108], star:.28, jag:.5, day:.4, light:{t:'sun',x:.80,y:78,r:9,c:'#FFB98C'} } },
 
@@ -336,10 +323,8 @@ var ST = [
     t:{de:'Der tiefste Punkt',en:'The deepest point'},
     b:{de:'Der rettende Auftrag platzt, die Reserven sind weg, der Konkurs ist unumkehrbar. Panikattacken.',
        en:'The rescuing contract collapses, the reserves are gone, the bankruptcy is irreversible. Panic attacks.'},
-    i:{de:'Ich hätte damals nicht sagen können, dass es vorbeigeht. Ich konnte nur weitergehen — mit einem Säugling auf dem Arm und nichts mehr in der Hand. Was blieb: «Egal wie schlimm, es geht vorbei.»',
-       en:'Back then I could not have said that it passes. I could only keep walking — with an infant in my arms and nothing left in my hands. What stayed: “No matter how bad, it passes.”'},
-    tr:{de:'Stressanfälligkeit z −1.3 · was hält, wenn nichts mehr hält',
-        en:'Vulnerability z −1.3 · what holds when nothing else does'},
+    i:{de:'Ich konnte nur weitergehen. Es ging vorbei.',en:'I could only keep walking. It passed.'},
+    tr:{de:'STRESSANFÄLLIGKEIT  z −1.3',en:'VULNERABILITY  z −1.3'},
     f:{de:'WILLE',en:'WILL'},
     p:{ sky:[46,20,24], deep:[14,9,12], gnd:[38,26,32], cap:[76,50,56], star:.05, jag:1, day:0, light:null } },
 
@@ -347,10 +332,8 @@ var ST = [
     t:{de:'Der eigene Weg',en:'My own path'},
     b:{de:'Fünfzehn Jahre nach dem Nein der Bezirksschule gründe ich selber Schulen. Dazu die eigene Beratung, ein paar Beteiligungen, ein Sitz im Einwohnerrat und der Bataillonsstab — und der EMBA, während Harvard schon hinter mir liegt.',
        en:'Fifteen years after that school said no, I found schools myself. Alongside that my own consultancy, a few holdings, a seat in the city parliament and a place on the battalion staff — and the EMBA, with Harvard already behind me.'},
-    i:{de:'Ich habe das Nein von 2011 nicht widerlegt — ich habe es überholt. Man hat mir die Schule verwehrt, also baue ich jetzt welche. Drei Menschen gehen mit. Und was mir noch fehlt, weiss ich inzwischen genau: das Schwierige früh sagen, nicht erst, wenn es nicht mehr anders geht.',
-       en:'I did not disprove the No of 2011 — I outran it. They kept me out of a school, so now I build them. Three people walk with me. And I know exactly what is still missing: saying the hard thing early, not only when there is no other way left.'},
-    tr:{de:'Der Kreis schliesst sich: aus dem abgewiesenen Schüler wird der Schulgründer · Wille × Plan',
-        en:'The circle closes: the rejected pupil becomes the school founder · Will × Plan'},
+    i:{de:'Man hat mir die Schule verwehrt. Jetzt baue ich welche.',en:'They kept me out of a school. Now I build them.'},
+    tr:{de:'WILLE × PLAN',en:'WILL × PLAN'},
     f:{de:'WILLE × PLAN',en:'WILL × PLAN'},
     p:{ sky:[190,220,246], deep:[50,112,188], gnd:[112,134,166], cap:[190,212,238], star:0, jag:.2, day:1, light:{t:'sun',x:.62,y:28,r:12,c:'#FFFDF2',rays:1} } },
 
@@ -359,10 +342,8 @@ var ST = [
     t:{de:'Der Spiegel',en:'The mirror'},
     b:{de:'Tag 1: Persönlichkeit und Führung. Das NEO-PI-3 und die Lifeline nebeneinander gelegt — und plötzlich erklärt das eine das andere.',
        en:'Day 1: personality and leadership. The NEO-PI-3 and the lifeline laid side by side — and suddenly one explains the other.'},
-    i:{de:'Der unbequemste Wert war nicht der höchste, sondern Ordnung z −0.8 neben Selbstdisziplin z +2.5. Mein Motor ist Wille, nicht System. Das heisst: Ich muss nicht ordentlicher werden — ich muss Menschen und Strukturen um mich bauen, die es sind.',
-       en:'The most uncomfortable value was not the highest one, but order z −0.8 next to self-discipline z +2.5. My engine is will, not system. Which means: I do not have to become tidier — I have to build people and structures around me that are.'},
-    tr:{de:'Selbstkenntnis ist kein Zweck, sie ist Konstruktionsplan',
-        en:'Self-knowledge is not a purpose, it is a construction plan'},
+    i:{de:'Mein Motor ist Wille, nicht System.',en:'My engine is will, not system.'},
+    tr:{de:'ORDNUNG  z −0.8 · SELBSTDISZIPLIN  z +2.5',en:'ORDER  z −0.8 · SELF-DISCIPLINE  z +2.5'},
     f:{de:'SELBSTKENNTNIS',en:'SELF-KNOWLEDGE'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } },
 
@@ -370,10 +351,8 @@ var ST = [
     t:{de:'Was ankommt',en:'What lands'},
     b:{de:'Tag 2: Macht als Motiv, und die Lücke zwischen Selbstbild und Ruf. Macht ist nicht das schmutzige Wort — es ist die Fähigkeit, andere wirksam zu machen.',
        en:'Day 2: power as a motive, and the gap between self-image and reputation. Power is not the dirty word — it is the ability to make others effective.'},
-    i:{de:'Mein Machtdefizit ist nicht Autorität. Es ist Klartext. Was ich nicht sage, kostet mich Wirkung — und den anderen die Chance, es besser zu machen. Die anderen erleben mich direkter, als ich mich im Konflikt tatsächlich verhalte.',
-       en:'My power deficit is not authority. It is candor. What I do not say costs me impact — and costs others the chance to do better. People experience me as more direct than I actually am in conflict.'},
-    tr:{de:'Direktheit z −1.1 — die teuerste Lücke zwischen Wirkung und Absicht',
-        en:'Straightforwardness z −1.1 — the costliest gap between impact and intent'},
+    i:{de:'Was ich nicht sage, kostet mich Wirkung.',en:'What I do not say costs me impact.'},
+    tr:{de:'DIREKTHEIT  z −1.1',en:'STRAIGHTFORWARDNESS  z −1.1'},
     f:{de:'WIRKUNG',en:'IMPACT'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } },
 
@@ -381,10 +360,8 @@ var ST = [
     t:{de:'Warm ist nicht ehrlich',en:'Warm is not honest'},
     b:{de:'Die Team-Simulation hat es gnadenlos gezeigt: Zusammenarbeit ist nicht die Abwesenheit von Konflikt. Harmonie kann ein Team genauso lähmen wie Streit.',
        en:'The team simulation showed it without mercy: collaboration is not the absence of conflict. Harmony can paralyse a team just as much as fighting.'},
-    i:{de:'Ich baue warme Räume — das kann ich, seit ich vierzehn bin. Was ich lernen muss: sie auch ehrlich zu machen. Psychologische Sicherheit heisst nicht, dass niemand verletzt wird. Sie heisst, dass jemand das Schwierige sagen darf. Auch zu mir.',
-       en:'I build warm rooms — I have been able to do that since I was fourteen. What I have to learn is to make them honest too. Psychological safety does not mean nobody gets hurt. It means someone is allowed to say the hard thing. To me as well.'},
-    tr:{de:'Altruismus z +1.5 · Harmoniebedürfnis z +1.0 — Stärke und Falle zugleich',
-        en:'Altruism z +1.5 · compliance z +1.0 — strength and trap at once'},
+    i:{de:'Warm ist nicht ehrlich.',en:'Warm is not honest.'},
+    tr:{de:'ALTRUISMUS  z +1.5 · HARMONIE  z +1.0',en:'ALTRUISM  z +1.5 · COMPLIANCE  z +1.0'},
     f:{de:'SICHERHEIT',en:'SAFETY'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } },
 
@@ -392,10 +369,8 @@ var ST = [
     t:{de:'Vorhand und Rückhand',en:'Forehand and backhand'},
     b:{de:'Tag 3, Goleman: sechs Führungsstile, und die Frage, welchen man automatisch spielt. Meiner ist Pacesetting — Tempo machen, Massstab setzen, vorangehen.',
        en:'Day 3, Goleman: six leadership styles, and the question of which one you play automatically. Mine is pacesetting — set the pace, set the standard, go first.'},
-    i:{de:'Meine Rückhand ist Coaching — ausgerechnet der Stil, für den ich alles mitbringe ausser dem frühen, harten Gespräch. Pacesetting skaliert mit meinen Stunden. Coaching verzinst sich. Das ist der ganze Unterschied zwischen der schnellsten Person in der Firma und einer Firma, die auch ohne mich gewinnt.',
-       en:'My backhand is coaching — of all things the style I have everything for except the early, hard conversation. Pacesetting scales with my hours. Coaching compounds. That is the whole difference between being the fastest person in the company and building a company that wins without me.'},
-    tr:{de:'Leistungsstreben z +2.7 trägt die Vorhand · die Rückhand muss ich trainieren',
-        en:'Achievement striving z +2.7 carries the forehand · the backhand needs training'},
+    i:{de:'Pacesetting skaliert mit meinen Stunden. Coaching verzinst sich.',en:'Pacesetting scales with my hours. Coaching compounds.'},
+    tr:{de:'VORHAND PACESETTING · RÜCKHAND COACHING',en:'FOREHAND PACESETTING · BACKHAND COACHING'},
     f:{de:'REPERTOIRE',en:'REPERTOIRE'},
     p:{ sky:[198,214,234], deep:[86,110,142], gnd:[146,162,186], cap:[218,230,246], star:0, jag:.05, day:.9, light:null } }
 ];
@@ -414,7 +389,7 @@ var T = {
        credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI-UNTERSTÜTZUNG (CLAUDE)',
        again:'LEERTASTE — NOCHMAL',
        introH:'WAS DAS HIER IST',
-       intro:'Dieses Spiel ist meine <b>Lifeline</b>. Der Boden, über den du läufst, ist genau die Kurve aus der Übung von Tag 1 — meine Gipfel und meine Täler, in der richtigen Reihenfolge.<br><br>An jeder Station steht drei Dinge: was passiert ist, was es mit mir gemacht hat, und was mein <b>NEO-PI-3</b> dazu sagt.<br><br>Am Schluss wird der Boden flach, und du gehst durch vier <b>Spiegel</b> — das sind die Learnings aus dem Modul, die meine Lifeline neu lesen.',
+       intro:'The ground you walk on is my <b>lifeline</b>.<br>Eleven stations — then four <b>mirrors</b> with the lessons from the module.',
        introMeta:'ELF STATIONEN · VIER LEHREN · RUND SIEBEN MINUTEN',
        introGo:'LEERTASTE — LOSGEHEN' },
   en:{ sub:'ELEVEN STATIONS · FOUR LESSONS', keys:'<b>◀ ▶</b> walk &nbsp;·&nbsp; <b>SPACE</b> read<br>That is all it takes.',
@@ -1472,7 +1447,7 @@ function openDlg(i){
   var s=ST[i];
   document.getElementById('d-yr').textContent=s.yr[lang];
   document.getElementById('d-t').textContent=s.t[lang];
-  document.getElementById('d-b').textContent=s.b[lang];
+  document.getElementById('d-b').style.display='none';
   document.getElementById('d-i').textContent=s.i[lang];
   document.getElementById('d-tr').textContent=s.tr[lang];
   document.getElementById('d-f').textContent=T[lang].got+' '+s.f[lang];
