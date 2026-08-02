@@ -106,6 +106,9 @@ Eine einzige HTML-Datei. Kein Build, keine Abhängigkeiten, keine externen Resso
 - Terrain als Interpolation über die Stationshöhen, mit eigenen Kurven für Klippe und Aufstieg
 - Echte Fallphysik; die Laufgeschwindigkeit hängt von Steigung und Verletzung ab
 - Begleiter folgen einer aufgezeichneten Spur — sie fallen und klettern mit
+- Licht statt nur Farbe: jede Station hat einen Tageslichtanteil. Hochs sind heller Tag mit Sonne
+  und Luftperspektive, Tiefs sind Regentag, Dämmerung oder Nacht. Vignette, Scanlines, Sterne und
+  die getragene Lampe folgen diesem Wert
 - Kulissen in drei Tiefen: ferne Bergketten, Meer oder Skyline; mittlere Bauten; eine dunkle
   Vordergrundschicht aus Bäumen, Masten oder Schutt, die schneller vorbeizieht als die Welt
 - Paletten, Horizonte und Hintergrundmotive blenden zwischen den Phasen über
