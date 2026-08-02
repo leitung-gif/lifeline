@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>LIFELINE — Sinan Güzelsahin</title>
-<meta name="description" content="Ein Reflexionsartefakt als Pixel-Spiel. Rochester-Bern EMBA, BRN 445 Leadership and Empowerment.">
+<meta name="description" content="A reflection artefact as a pixel game. The ground you walk on is my lifeline. Rochester-Bern EMBA, BRN 445 Leadership and Empowerment.">
 <style>
   :root{
     --void:#080B14;
@@ -167,8 +167,8 @@
 <body>
 <div id="rotate">
   <div class="ic">⟲</div>
-  <div class="l1">BITTE GERÄT DREHEN</div>
-  <div class="l2">PLEASE ROTATE YOUR DEVICE<br>LIFELINE braucht Querformat</div>
+  <div class="l1">PLEASE ROTATE YOUR DEVICE</div>
+  <div class="l2">LIFELINE needs landscape</div>
 </div>
 
 <div id="stage">
@@ -333,7 +333,7 @@ var ST = [
     b:{de:'Fünfzehn Jahre nach dem Nein der Bezirksschule gründe ich selber Schulen. Dazu die eigene Beratung, ein paar Beteiligungen, ein Sitz im Einwohnerrat und der Bataillonsstab — und der EMBA, während Harvard schon hinter mir liegt.',
        en:'Fifteen years after that school said no, I found schools myself. Alongside that my own consultancy, a few holdings, a seat in the city parliament and a place on the battalion staff — and the EMBA, with Harvard already behind me.'},
     i:{de:'Man hat mir die Schule verwehrt. Jetzt baue ich welche.',en:'They kept me out of a school. Now I build them.'},
-    tr:{de:'WILLE × PLAN',en:'WILL × PLAN'},
+    tr:{de:'LEISTUNGSSTREBEN  z +2.7 · SELBSTDISZIPLIN  z +2.5',en:'ACHIEVEMENT STRIVING  z +2.7 · SELF-DISCIPLINE  z +2.5'},
     f:{de:'WILLE × PLAN',en:'WILL × PLAN'},
     p:{ sky:[190,220,246], deep:[50,112,188], gnd:[112,134,166], cap:[190,212,238], star:0, jag:.2, day:1, light:{t:'sun',x:.62,y:28,r:12,c:'#FFFDF2',rays:1} } },
 
@@ -385,11 +385,10 @@ var T = {
        take2:'Mein Motor ist Wille, nicht System.', take2b:'Also baue ich Menschen und Strukturen um mich, die es sind.',
        take3:'Klartext ist Fürsorge.', take3b:'Mein grösster Hebel ist das schwierige Gespräch, früh geführt.',
        takeH:'WAS ICH MITNEHME', takeEnd:'WILLE × PLAN',
-       brandUnused:'Ich bin Challenger aus Biografie — zweimal wurde mir der Weg verwehrt, also hinterfrage ich Landkarten und baue erfinderisch eigene. Ich führe selbstbewusst von vorne: Massstab setzen, zuerst bei mir, ruhig bleiben, wenn es sonst niemand ist. Von Natur aus zugewandt baue ich Teams als Orte echter Zugehörigkeit — getrieben von Werten, nicht von Titeln: Prinzipien, Ehrlichkeit, Disziplin. Und ich bin geradeheraus mit dem, was ich denke — und lerne, es auch mit dem Schwierigen zu sein, weil Klarheit Fürsorge ist.',
        credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI-UNTERSTÜTZUNG (CLAUDE)',
        again:'LEERTASTE — NOCHMAL',
        introH:'WAS DAS HIER IST',
-       intro:'The ground you walk on is my <b>lifeline</b>.<br>Eleven stations — then four <b>mirrors</b> with the lessons from the module.',
+       intro:'Der Boden, über den du läufst, ist meine <b>Lifeline</b>.<br>Elf Stationen — danach vier <b>Spiegel</b> mit den Learnings aus dem Modul.',
        introMeta:'ELF STATIONEN · VIER LEHREN · RUND SIEBEN MINUTEN',
        introGo:'LEERTASTE — LOSGEHEN' },
   en:{ sub:'ELEVEN STATIONS · FOUR LESSONS', keys:'<b>◀ ▶</b> walk &nbsp;·&nbsp; <b>SPACE</b> read<br>That is all it takes.',
@@ -401,11 +400,10 @@ var T = {
        take2:'My engine is will, not system.', take2b:'So I build people and structures around me that are.',
        take3:'Candor is care.', take3b:'My biggest lever is the hard conversation, held early.',
        takeH:'WHAT I TAKE WITH ME', takeEnd:'WILL × PLAN',
-       brandUnused:'I am a challenger by biography — twice the given path was denied to me, so I question maps and inventively build my own. I lead confident and from the front: setting the standard, holding myself to it first, staying calm when no one else is. Outgoing by nature, I build teams as places where people truly belong — driven by values, not titles: principles, honesty, discipline. And I am straightforward with what I think — now learning to be just as straightforward with what is hard to say, because clarity is care.',
        credits:'REFLECTION ARTEFACT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>SOURCES: OWN LIFELINE REFLECTION · NEO-PI-3 (30 JUN 2026)<br>DESIGN AND CODE WITH AI ASSISTANCE (CLAUDE)',
        again:'SPACE — AGAIN',
        introH:'WHAT THIS IS',
-       intro:'This game is my <b>lifeline</b>. The ground you walk on is exactly the curve from the day-one exercise — my peaks and my valleys, in the right order.<br><br>Every station tells you three things: what happened, what it did to me, and what my <b>NEO-PI-3</b> says about it.<br><br>At the end the ground goes flat and you walk through four <b>mirrors</b> — the lessons from the module, re-reading my lifeline.',
+       intro:'The ground you walk on is my <b>lifeline</b>.<br>Eleven stations — then four <b>mirrors</b> with the lessons from the module.',
        introMeta:'ELEVEN STATIONS · FOUR LESSONS · ABOUT SEVEN MINUTES',
        introGo:'SPACE — SET OFF' }
 };
@@ -435,7 +433,7 @@ var FOLK = {
 var cv=document.getElementById('g'), x=cv.getContext('2d');
 x.imageSmoothingEnabled=false;
 var VW=320, VH=180, stage=document.getElementById('stage');
-var lang='de', sound=true;
+var lang='en', sound=true;
 
 var GAP=300, X0=250;
 ST.forEach(function(s,i){ s.x = (i<11) ? X0+i*GAP : X0+10*GAP+280+(i-11)*230; });
