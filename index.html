@@ -144,9 +144,28 @@
   #pad .grp{display:flex;gap:calc(var(--u)*4);}
   body.touch #pad{display:flex;}
   body.touch #dlg{bottom:calc(var(--u)*30);}
+
+  /* Hochformat auf dem Handy: LIFELINE braucht Querformat */
+  #rotate{
+    position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:30;display:none;
+    align-items:center;justify-content:center;flex-direction:column;
+    background:#080B14;color:var(--bone);font-family:var(--mono);
+    text-align:center;padding:6vw;line-height:1.9;
+  }
+  #rotate > *{max-width:88vw;}
+  #rotate .ic{font-size:12vw;margin-bottom:6vw;color:var(--gold);letter-spacing:0;}
+  #rotate .l1{font-size:3.4vw;letter-spacing:.10em;}
+  #rotate .l2{font-size:2.7vw;color:var(--dim);margin-top:5vw;letter-spacing:.06em;}
+  @media (max-aspect-ratio: 13/10) and (max-width: 900px){ #rotate{display:flex;} }
 </style>
 </head>
 <body>
+<div id="rotate">
+  <div class="ic">⟲</div>
+  <div class="l1">BITTE GERÄT DREHEN</div>
+  <div class="l2">PLEASE ROTATE YOUR DEVICE<br>LIFELINE braucht Querformat</div>
+</div>
+
 <div id="stage">
   <canvas id="g" width="320" height="180"></canvas>
   <div id="crt"></div>
