@@ -7,7 +7,7 @@ Reflexionsartefakt für **BRN 445 · Leadership and Empowerment**, Rochester-Ber
 
 ▶ **[Spielen](https://leitung-gif.github.io/lifeline/)** · Pfeiltasten gehen, Leertaste lesen. Mehr braucht es nicht.
 
-![Die Hochzeit](screenshots/01-die-hochzeit.png)
+![Der grosse Tisch](screenshots/01-der-grosse-tisch.png)
 
 ---
 
