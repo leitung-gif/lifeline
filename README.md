@@ -65,6 +65,8 @@ Willen dazukommt.
 
 ![Offizier](screenshots/02-offizier.png)
 
+![Australien](screenshots/06-australien.png)
+
 ![Die Spiegel](screenshots/03-die-spiegel.png)
 
 ## Die vier Lehren aus dem Modul
@@ -104,6 +106,8 @@ Eine einzige HTML-Datei. Kein Build, keine Abhängigkeiten, keine externen Resso
 - Terrain als Interpolation über die Stationshöhen, mit eigenen Kurven für Klippe und Aufstieg
 - Echte Fallphysik; die Laufgeschwindigkeit hängt von Steigung und Verletzung ab
 - Begleiter folgen einer aufgezeichneten Spur — sie fallen und klettern mit
+- Kulissen in drei Tiefen: ferne Bergketten, Meer oder Skyline; mittlere Bauten; eine dunkle
+  Vordergrundschicht aus Bäumen, Masten oder Schutt, die schneller vorbeizieht als die Welt
 - Paletten, Horizonte und Hintergrundmotive blenden zwischen den Phasen über
 - Ton über WebAudio-Oszillatoren, keine Audiodateien
 - UI-Text als HTML-Overlay, an die Pixelgrösse gekoppelt (`--u`), damit er auf jeder Auflösung scharf bleibt
