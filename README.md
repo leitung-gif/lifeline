@@ -1,6 +1,6 @@
 # LIFELINE
 
-**Zehn Stationen eines Lebens, vier Lehren aus dem Modul — als Spiel.**
+**Elf Stationen eines Lebens, vier Lehren aus dem Modul — als Spiel.**
 
 Reflexionsartefakt für **BRN 445 · Leadership and Empowerment**, Rochester-Bern Executive MBA
 (Prof. Dr. Katharina Lange, IMD) · Sinan Güzelsahin · 2026
@@ -20,28 +20,29 @@ Der Clou: **Das Terrain ist die Lifeline.** Der Boden, über den man läuft, ist
 Lifeline-Übung. Man klettert über die Gipfel und stürzt in die Täler. Die Landschaft ist keine
 Dekoration, sie sind die Daten.
 
-Das Spiel hat zwei Akte. **Akt I** ist das Leben: zehn Stationen von der Kindheit bis heute.
+Das Spiel hat zwei Akte. **Akt I** ist das Leben: elf Stationen von der Kindheit bis heute.
 **Akt II** ist das Modul: Der Boden wird flach und hell, und man geht durch vier Spiegel, in denen
 man sein früheres Ich sieht. Dort stehen die Learnings aus dem Kurs — und lesen den ersten Akt neu.
 
 ## Die Entscheidungen, die die Reflexion tragen
 
 **Der Boden kann aufhören zu existieren.**
-2022 wird nicht erzählt, sondern gespielt. Man läuft über einen Gipfel — Hochzeit, Isacs Geburt,
-die besten Jahre — und dann ist der Boden einfach weg. Freier Fall, harter Aufprall, und ab da
+Der Konkurs 2023 wird nicht erzählt, sondern gespielt. Im Dezember 2022 kommt Iara zur Welt —
+und wenige Schritte weiter ist der Boden einfach weg. Freier Fall, harter Aufprall, und ab da
 humpelt die Figur. Der Weg aus dem Tal ist der steilste im ganzen Spiel, und man geht ihn verletzt.
 Erst bei «Heute» richtet man sich wieder auf.
 
 ![Der Sturz](screenshots/02-der-sturz.png)
 
-**Das einzige Hindernis im ganzen Spiel ist 2022 — und man kommt nur durch, indem man weitergeht.**
+**Das einzige Hindernis im ganzen Spiel ist 2023 — und man kommt nur durch, indem man weitergeht.**
 Kein Gegner, kein Geschick, kein Scheitern. Eine Taste, gedrückt gehalten, bis es vorbei ist. Die
 Kernlektion aus dem tiefsten Punkt meines Lebens als Spielmechanik: *«Egal wie schlimm — es geht
 vorbei.»*
 
 **Man läuft nicht allein.**
-Bianca kommt bei der Hochzeit dazu, Isac bei seiner Geburt 2021 — und Iara erscheint mitten im
-Sturm, im dunkelsten Moment, so wie es tatsächlich war. Ab dann sind es vier, die gehen.
+Bianca kommt bei der Hochzeit Anfang 2021 dazu, Isac im April 2021, Iara im Dezember 2022 —
+wenige Wochen bevor der Boden nachgibt. Sie ist das letzte Licht vor dem Sturz und der Grund,
+wieder aufzustehen. Ab dann sind es vier, die gehen.
 
 **Ich wachse sichtbar mit.**
 Die Figur beginnt als Kind und wird grösser. Mit vierzehn kommt der Rucksack für Australien
@@ -50,9 +51,12 @@ und die Menschen hinter einem gehen darin. So sieht Führung in diesem Spiel aus
 sondern als getragenes Licht.
 
 **Die Welt verändert sich mit der Lebensphase.**
-Jede Station hat ihre eigene Palette, ihren eigenen Horizont und ihre eigene Physik. Australien
-wird weit und hell, 2015 verliert fast alle Farbe, Angola wird rotbraun und zackig, 2022 bricht
-die Darstellung auf. In Akt II legt sich ein feines Raster über den Himmel: der Plan, der zum
+Jede Station hat ihre eigene Palette, ihren eigenen Horizont und ihre eigene Physik. Der grosse Tisch aus der Kindheit steht als langes
+Lichtband am Horizont, 2011 versperrt ein geschlossenes Tor den Weg, in Australien liegen Meer,
+Mond und Möwen, 2015 steht der verkaufte Betrieb leer, beim Militär stehen Masten im Gleichtakt,
+in Angola Fördertürme unter tiefer Sonne, bei der Hochzeit hängen Lichterketten über dem Weg.
+Auch die Luft und der Boden wechseln: aufsteigende Funken, Graupel, Wind, Asche — Grasbüschel,
+Risse, Kerben oder Schutt. In Akt II legt sich ein feines Raster über den Himmel: der Plan, der zum
 Willen dazukommt.
 
 ![Die Spiegel](screenshots/03-die-spiegel.png)
@@ -77,7 +81,7 @@ Willen dazukommt.
 | `DE` / `EN` | Sprache umschalten |
 | `♪` | Ton an/aus |
 
-Auf Touchgeräten erscheinen Bildschirmtasten. Eine Runde dauert etwa sechs Minuten.
+Auf Touchgeräten erscheinen Bildschirmtasten. Eine Runde dauert etwa sieben Minuten.
 
 ## Technik
 
