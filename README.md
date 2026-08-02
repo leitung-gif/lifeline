@@ -7,6 +7,10 @@ Reflexionsartefakt für **BRN 445 · Leadership and Empowerment**, Rochester-Ber
 
 ▶ **[Spielen](https://leitung-gif.github.io/lifeline/)** · Pfeiltasten gehen, Leertaste lesen. Mehr braucht es nicht.
 
+![Was das hier ist](screenshots/00-was-das-ist.png)
+
+Das Spiel erklaert sich zuerst selbst: was es ist, woraus es gebaut ist und was am Ende steht.
+
 ![Der grosse Tisch](screenshots/01-der-grosse-tisch.png)
 
 ---
@@ -59,6 +63,8 @@ Auch die Luft und der Boden wechseln: aufsteigende Funken, Graupel, Wind, Asche 
 Risse, Kerben oder Schutt. In Akt II legt sich ein feines Raster über den Himmel: der Plan, der zum
 Willen dazukommt.
 
+![Offizier](screenshots/02-offizier.png)
+
 ![Die Spiegel](screenshots/03-die-spiegel.png)
 
 ## Die vier Lehren aus dem Modul
@@ -70,7 +76,13 @@ Willen dazukommt.
 | **Leading Teams** | Zusammenarbeit ist nicht die Abwesenheit von Konflikt. Ich baue warme Räume; ich muss sie auch ehrlich machen. |
 | **Stile** | Vorhand Pacesetting, Rückhand Coaching. Pacesetting skaliert mit meinen Stunden, Coaching verzinst sich. |
 
-![Das Second Brain](screenshots/04-second-brain.png)
+## Das Ende
+
+Zum Schluss zeichnet sich die ganze Kurve noch einmal von links nach rechts — elf Stationen,
+die Klippe von 2023 in Bernstein, das flache Plateau der vier Spiegel. Man sieht die Form des
+eigenen Lebens in einem Bild. Darunter stehen die drei Dinge, die ich mitnehme.
+
+![Was ich mitnehme](screenshots/05-was-ich-mitnehme.png)
 
 ## Bedienung
 

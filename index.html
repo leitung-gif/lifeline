@@ -38,6 +38,7 @@
     background:radial-gradient(ellipse 78% 74% at 50% 50%,rgba(0,0,0,0) 40%,rgba(0,0,0,.40) 100%);
   }
   .ui{position:absolute;z-index:8;}
+  body.pre #hud{opacity:0;pointer-events:none;}
 
   #hud{top:calc(var(--u)*7);left:calc(var(--u)*8);right:calc(var(--u)*8);
        display:flex;justify-content:space-between;align-items:flex-start;gap:calc(var(--u)*6);}
@@ -98,8 +99,35 @@
   .screen .keys{margin-top:calc(var(--u)*9);font-size:calc(var(--u)*4.2);line-height:2;color:var(--dimmer);letter-spacing:calc(var(--u)*.8);}
   .screen .keys b{color:var(--bone);font-weight:400;}
   .screen .start{margin-top:calc(var(--u)*9);font-size:calc(var(--u)*5.4);letter-spacing:calc(var(--u)*1.6);color:var(--gold);}
+  /* ── Rahmen: was das hier ist ── */
+  #intro{justify-content:center;background:rgba(6,8,14,.95);padding:calc(var(--u)*10) calc(var(--u)*12);}
+  #intro .i-kicker{font-size:calc(var(--u)*3.4);letter-spacing:calc(var(--u)*1.6);color:var(--dimmer);}
+  #intro h2{margin:calc(var(--u)*5) 0 0;font-weight:400;font-size:calc(var(--u)*8.5);
+            letter-spacing:calc(var(--u)*2.6);color:var(--bone);}
+  #intro .i-body{max-width:calc(var(--u)*208);margin-top:calc(var(--u)*6);text-align:left;
+                 font-size:calc(var(--u)*4.3);line-height:1.75;color:#C3CBDC;}
+  #intro .i-body b{color:var(--gold);font-weight:400;}
+  #intro .i-meta{margin-top:calc(var(--u)*6);font-size:calc(var(--u)*3.4);
+                 letter-spacing:calc(var(--u)*1.4);color:var(--dim);}
+  #intro .start{margin-top:calc(var(--u)*7);font-size:calc(var(--u)*4.8);}
+
+  /* ── Abspann: was ich mitnehme ── */
+  #end .e-take{max-width:calc(var(--u)*230);text-align:left;}
+  #end .e-take .th{font-size:calc(var(--u)*3.6);letter-spacing:calc(var(--u)*1.8);
+                   color:var(--dimmer);margin-bottom:calc(var(--u)*4);text-align:center;}
+  #end .e-take .row{display:flex;gap:calc(var(--u)*4);margin-bottom:calc(var(--u)*3.4);
+                    opacity:0;transform:translateY(calc(var(--u)*2));
+                    transition:opacity .8s ease,transform .8s ease;}
+  #end .e-take .row.in{opacity:1;transform:none;}
+  #end .e-take .n{font-size:calc(var(--u)*4);color:var(--gold);flex:none;width:calc(var(--u)*7);}
+  #end .e-take .tx{font-size:calc(var(--u)*4.2);line-height:1.6;color:#CBD3E2;}
+  #end .e-take .tx b{color:var(--bone);font-weight:400;display:block;}
+  #end .e-take .fin{text-align:center;margin-top:calc(var(--u)*5);font-size:calc(var(--u)*6.5);
+                    letter-spacing:calc(var(--u)*2.4);color:var(--gold);
+                    opacity:0;transition:opacity 1.2s ease;}
+  #end .e-take .fin.in{opacity:1;}
   #end{justify-content:flex-end;padding:0 calc(var(--u)*10) calc(var(--u)*6);
-       background:linear-gradient(180deg,rgba(8,11,20,0) 0%,rgba(8,11,20,.55) 30%,rgba(8,11,20,.93) 48%);
+       background:linear-gradient(180deg,rgba(8,11,20,0) 0%,rgba(8,11,20,.20) 22%,rgba(8,11,20,.88) 38%,rgba(8,11,20,.97) 50%);
        overflow-y:auto;}
   #end h1{font-size:calc(var(--u)*10);letter-spacing:calc(var(--u)*3.2);}
   #end .sub{margin-top:calc(var(--u)*2.6);font-size:calc(var(--u)*3.6);}
@@ -163,11 +191,16 @@
     <div class="start blink" id="t-start"></div>
   </div>
 
+  <div class="ui screen" id="intro">
+    <div class="i-kicker" id="i-kicker">REFLEXIONSARTEFAKT · BRN 445 · ROCHESTER-BERN EMBA</div>
+    <h2 id="i-h"></h2>
+    <div class="i-body" id="i-body"></div>
+    <div class="i-meta" id="i-meta"></div>
+    <div class="start blink" id="i-go"></div>
+  </div>
+
   <div class="ui screen" id="end">
-    <h1 id="e-h"></h1>
-    <div class="sub" id="e-sub"></div>
-    <div class="chips" id="e-chips"></div>
-    <div class="brand" id="e-brand"></div>
+    <div class="e-take" id="e-take"></div>
     <div class="credits" id="e-credits"></div>
     <div class="start blink" id="e-again"></div>
   </div>
@@ -297,8 +330,8 @@ var ST = [
 
   { gy:70, motif:'city', fx:'updraft', surf:'grass', yr:{de:'HEUTE',en:'TODAY'},
     t:{de:'Der eigene Weg',en:'My own path'},
-    b:{de:'Philosophie-Bachelor, EMBA, Harvard im Blick, Lorien im Aufbau. Und drei Menschen, die mitgehen.',
-       en:'Philosophy BA, EMBA, Harvard in sight, Lorien in the making. And three people walking with me.'},
+    b:{de:'Selbstständig, mit Eigenem unter einem Dach: eine Privatschule aufbauen, beraten, Firmen führen. Daneben Philosophie-Bachelor, EMBA, Harvard im Blick — und drei Menschen, die mitgehen.',
+       en:'Self-employed, building my own under one roof: founding a private school, consulting, running companies. Alongside that a philosophy BA, the EMBA, Harvard in sight — and three people walking with me.'},
     i:{de:'Das Nein von 2011 habe ich nicht widerlegt — ich habe es überholt. Und ich weiss jetzt, was mir noch fehlt: das Schwierige früh sagen, nicht erst, wenn es nicht mehr anders geht.',
        en:'I did not disprove the No of 2011 — I outran it. And I now know what is still missing: saying the hard thing early, not only when there is no other way left.'},
     tr:{de:'Wille × Plan — das Malzeichen ist die eigentliche Lektion',
@@ -358,17 +391,33 @@ var T = {
        got:'FRAGMENT:', hold:'▶ GEDRÜCKT HALTEN', pass:'«Egal wie schlimm — es geht vorbei.»',
        joinB:'BIANCA GEHT MIT', joinI:'ISAC GEHT MIT', joinJ:'IARA GEHT MIT',
        endH:'SECOND BRAIN', endSub:'FÜNFZEHN FRAGMENTE · EIN NETZ · VIER MENSCHEN',
-       brand:'Ich bin Challenger aus Biografie — zweimal wurde mir der Weg verwehrt, also hinterfrage ich Landkarten und baue erfinderisch eigene. Ich führe selbstbewusst von vorne: Massstab setzen, zuerst bei mir, ruhig bleiben, wenn es sonst niemand ist. Von Natur aus zugewandt baue ich Teams als Orte echter Zugehörigkeit — getrieben von Werten, nicht von Titeln: Prinzipien, Ehrlichkeit, Disziplin. Und ich bin geradeheraus mit dem, was ich denke — und lerne, es auch mit dem Schwierigen zu sein, weil Klarheit Fürsorge ist.',
+       take1:'Die Täler tragen.', take1b:'Jede Fähigkeit, mit der ich heute führe, wurde in einem Tiefpunkt gefaltet.',
+       take2:'Mein Motor ist Wille, nicht System.', take2b:'Also baue ich Menschen und Strukturen um mich, die es sind.',
+       take3:'Klartext ist Fürsorge.', take3b:'Mein grösster Hebel ist das schwierige Gespräch, früh geführt.',
+       takeH:'WAS ICH MITNEHME', takeEnd:'WILLE × PLAN',
+       brandUnused:'Ich bin Challenger aus Biografie — zweimal wurde mir der Weg verwehrt, also hinterfrage ich Landkarten und baue erfinderisch eigene. Ich führe selbstbewusst von vorne: Massstab setzen, zuerst bei mir, ruhig bleiben, wenn es sonst niemand ist. Von Natur aus zugewandt baue ich Teams als Orte echter Zugehörigkeit — getrieben von Werten, nicht von Titeln: Prinzipien, Ehrlichkeit, Disziplin. Und ich bin geradeheraus mit dem, was ich denke — und lerne, es auch mit dem Schwierigen zu sein, weil Klarheit Fürsorge ist.',
        credits:'REFLEXIONSARTEFAKT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>QUELLEN: EIGENE LIFELINE-REFLEXION · NEO-PI-3 (30.06.2026)<br>GESTALTUNG UND CODE MIT KI-UNTERSTÜTZUNG (CLAUDE)',
-       again:'LEERTASTE — NOCHMAL' },
+       again:'LEERTASTE — NOCHMAL',
+       introH:'WAS DAS HIER IST',
+       intro:'Dieses Spiel ist meine <b>Lifeline</b>. Der Boden, über den du läufst, ist genau die Kurve aus der Übung von Tag 1 — meine Gipfel und meine Täler, in der richtigen Reihenfolge.<br><br>An jeder Station steht drei Dinge: was passiert ist, was es mit mir gemacht hat, und was mein <b>NEO-PI-3</b> dazu sagt.<br><br>Am Schluss wird der Boden flach, und du gehst durch vier <b>Spiegel</b> — das sind die Learnings aus dem Modul, die meine Lifeline neu lesen.',
+       introMeta:'ELF STATIONEN · VIER LEHREN · RUND SIEBEN MINUTEN',
+       introGo:'LEERTASTE — LOSGEHEN' },
   en:{ sub:'ELEVEN STATIONS · FOUR LESSONS', keys:'<b>◀ ▶</b> walk &nbsp;·&nbsp; <b>SPACE</b> read<br>That is all it takes.',
        start:'PRESS SPACE', read:'▸ PRESS SPACE TO READ', next:'▸ CONTINUE — SPACE',
        got:'FRAGMENT:', hold:'▶ HOLD DOWN', pass:'“No matter how bad — it passes.”',
        joinB:'BIANCA JOINS YOU', joinI:'ISAC JOINS YOU', joinJ:'IARA JOINS YOU',
        endH:'SECOND BRAIN', endSub:'FIFTEEN FRAGMENTS · ONE NETWORK · FOUR PEOPLE',
-       brand:'I am a challenger by biography — twice the given path was denied to me, so I question maps and inventively build my own. I lead confident and from the front: setting the standard, holding myself to it first, staying calm when no one else is. Outgoing by nature, I build teams as places where people truly belong — driven by values, not titles: principles, honesty, discipline. And I am straightforward with what I think — now learning to be just as straightforward with what is hard to say, because clarity is care.',
+       take1:'The valleys bear the load.', take1b:'Every capability I lead with today was folded in a low point.',
+       take2:'My engine is will, not system.', take2b:'So I build people and structures around me that are.',
+       take3:'Candor is care.', take3b:'My biggest lever is the hard conversation, held early.',
+       takeH:'WHAT I TAKE WITH ME', takeEnd:'WILL × PLAN',
+       brandUnused:'I am a challenger by biography — twice the given path was denied to me, so I question maps and inventively build my own. I lead confident and from the front: setting the standard, holding myself to it first, staying calm when no one else is. Outgoing by nature, I build teams as places where people truly belong — driven by values, not titles: principles, honesty, discipline. And I am straightforward with what I think — now learning to be just as straightforward with what is hard to say, because clarity is care.',
        credits:'REFLECTION ARTEFACT · BRN 445 LEADERSHIP AND EMPOWERMENT<br>ROCHESTER-BERN EMBA · SINAN GÜZELSAHIN · 2026<br>SOURCES: OWN LIFELINE REFLECTION · NEO-PI-3 (30 JUN 2026)<br>DESIGN AND CODE WITH AI ASSISTANCE (CLAUDE)',
-       again:'SPACE — AGAIN' }
+       again:'SPACE — AGAIN',
+       introH:'WHAT THIS IS',
+       intro:'This game is my <b>lifeline</b>. The ground you walk on is exactly the curve from the day-one exercise — my peaks and my valleys, in the right order.<br><br>Every station tells you three things: what happened, what it did to me, and what my <b>NEO-PI-3</b> says about it.<br><br>At the end the ground goes flat and you walk through four <b>mirrors</b> — the lessons from the module, re-reading my lifeline.',
+       introMeta:'ELEVEN STATIONS · FOUR LESSONS · ABOUT SEVEN MINUTES',
+       introGo:'SPACE — SET OFF' }
 };
 
 /* the body grows with the life: height, clothes, gear */
@@ -598,6 +647,11 @@ function motif(kind,alpha,P){
       bx=wrapX(i,120,.22,160); h=14+((i*37)%8); w=16+((i*29)%10);
       px(bx,tY-h-12,w,h,shade(P.cap,.22));
       px(bx+3,tY-h-8,3,3,'rgba(246,206,138,.8)');
+      if(i%3===0){                                          /* Minarett */
+        px(bx+w+4,tY-h-30,2,30,shade(P.cap,.26));
+        px(bx+w+3,tY-h-34,4,4,shade(P.cap,.30));
+        px(bx+w+4,tY-h-37,1,3,shade(P.cap,.34));
+      }
     }
   }
   else if(kind==='gate'){
@@ -627,6 +681,12 @@ function motif(kind,alpha,P){
     x.fillStyle='#E8F6FA'; x.beginPath(); x.arc(mx,my,mr,0,6.2832); x.fill();
     x.fillStyle=shade(P.sky,1.25); x.beginPath(); x.arc(mx+3,my-2,1.6,0,6.2832); x.fill();
     x.beginPath(); x.arc(mx-2,my+3,1.2,0,6.2832); x.fill();
+    var cs=[[0,0],[3,11],[-4,6],[5,4],[1,5]];                /* Kreuz des Suedens */
+    for(i=0;i<cs.length;i++){
+      var cx2=((VW*.16 - camX*.06)%(VW+60)+VW+60)%(VW+60)-30;
+      px(cx2+cs[i][0]*2,18+cs[i][1]*2,1,1,'#F2F8FF');
+      if(i<2) px(cx2+cs[i][0]*2+1,18+cs[i][1]*2,1,1,'rgba(242,248,255,.5)');
+    }
     for(i=0;i<5;i++){
       bx=wrapX(i,90,.16,120); var byy=44+((i*23)%18)+Math.sin(tt*.03+i)*2;
       px(bx,byy,1,1,shade(P.cap,.7)); px(bx+1,byy-1,1,1,shade(P.cap,.7)); px(bx+2,byy,1,1,shade(P.cap,.7));
@@ -648,7 +708,20 @@ function motif(kind,alpha,P){
     }
   }
   else if(kind==='masts'){
-    /* Offizier: Masten in exakt gleichem Abstand, Fahnen im gleichen Takt */
+    /* Offizier: Alpenkette, Kasernenbloecke, Masten im Gleichtakt */
+    for(i=0;i<VW;i++){
+      var aw=(camX*.14+i)*.021;
+      var ah=74+Math.sin(aw)*15+Math.sin(aw*2.7)*9+Math.sin(aw*6.3)*5;
+      px(i,ah,1,VH-ah,shade(P.cap,.30));
+      if(ah<80) px(i,ah,1,3,'rgba(226,238,250,.55)');      /* Schnee auf den Graten */
+    }
+    for(i=0;i<7;i++){
+      bx=wrapX(i,96,.30,120);
+      by=groundY(camX*.30+i*96)-2;
+      px(bx,by-17,40,17,shade(P.cap,.24));                  /* Kasernenblock */
+      px(bx-1,by-20,42,3,shade(P.cap,.32));
+      for(var kf=0;kf<5;kf++) px(bx+4+kf*7,by-13,4,4,shade(P.cap,.12));
+    }
     for(i=0;i<24;i++){
       bx=wrapX(i,64,.46,80);
       var py2=groundY(camX*.46+i*64)-2;
@@ -875,30 +948,52 @@ function drawStorm(){
 }
 
 /* ══════════════ ending ══════════════ */
-/* elf Stationen eines Lebens, vier Lehren aus dem Modul — ein Netz */
-var NET=[[50,80],[36,54],[70,34],[98,60],[84,86],[120,94],[142,52],[164,74],[186,38],[206,98],[228,46],
-         [250,30],[272,58],[256,90],[292,72]];
-var LNK=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[0,4],[1,3],[2,6],[5,7],[3,10],[6,10],[8,4],
-         [10,11],[11,12],[12,13],[13,14],[11,14],[12,14],[1,11],[4,12],[5,13],[7,13],[2,14]];
+/* ── Abspann: die ganze Kurve, die du gerade gegangen bist ── */
+function lifeX(wx){ return 14+(wx/WORLD)*292; }
+function lifeY(wy){ return 26+((wy-64)/96)*62; }
 function drawEnd(){
   px(0,0,VW,VH,'#080B14');
-  var i, shown=Math.min(N,Math.floor(endT/15));
-  x.globalAlpha=.5;
-  for(i=0;i<stars.length;i++){ var s=stars[i]; px(s.x%VW,s.y,1,1,'#26304A'); }
+  var i;
+  x.globalAlpha=.45;
+  for(i=0;i<stars.length;i++){ var st=stars[i]; px(st.x%VW,st.y%70,1,1,'#28324C'); }
   x.globalAlpha=1;
-  for(i=0;i<LNK.length;i++){
-    var a=NET[LNK[i][0]], b=NET[LNK[i][1]];
-    if(LNK[i][0]<shown && LNK[i][1]<shown){
-      var pr=Math.min(1,(endT-15*Math.max(LNK[i][0],LNK[i][1]))/14);
-      x.strokeStyle='rgba(233,192,106,.30)'; x.lineWidth=1;
-      x.beginPath(); x.moveTo(a[0]+.5,a[1]+.5);
-      x.lineTo(a[0]+(b[0]-a[0])*pr+.5,a[1]+(b[1]-a[1])*pr+.5); x.stroke();
+
+  var draw=Math.min(1,endT/150);                 /* die Linie laeuft von links nach rechts */
+  var edge=14+draw*292;
+
+  /* der Boden unter der Kurve */
+  for(i=14;i<edge;i++){
+    var wx=((i-14)/292)*WORLD, gy=lifeY(groundY(wx));
+    x.globalAlpha=.16; px(i,gy,1,106-gy,'#2A3550'); x.globalAlpha=1;
+    px(i,gy,1,1,'#8FA6BE');
+  }
+  /* die Klippe von 2023 bekommt eine eigene Farbe */
+  var cx0=lifeX(ST[8].x), cx1=lifeX(ST[9].x);
+  if(edge>cx0){
+    for(i=cx0|0;i<Math.min(edge,cx1);i++){
+      var wx2=((i-14)/292)*WORLD;
+      px(i,lifeY(groundY(wx2)),1,1,'#D08A3C');
     }
   }
-  for(i=0;i<shown;i++){
-    var n=NET[i], pu=1+Math.sin(tt*.06+i)*.4;
-    for(var r=3;r>0;r--){ x.globalAlpha=.07*pu*r; px(n[0]-r,n[1]-r,2+r*2,2+r*2,'#E9C06A'); }
-    x.globalAlpha=1; px(n[0],n[1],2,2,'#FFF0CC');
+  /* die Stationen leuchten auf, sobald die Linie sie erreicht */
+  for(i=0;i<N;i++){
+    var sxp=lifeX(ST[i].x); if(sxp>edge) continue;
+    var syp=lifeY(ST[i].gy);
+    var age=Math.min(1,(edge-sxp)/16);
+    var c=(ST[i].act===2)?'#8FC0D8':((ST[i].gy<118)?'#EFE7D6':'#D08A3C');
+    var pu=1+Math.sin(tt*.06+i)*.35;
+    for(var r=2;r>0;r--){ x.globalAlpha=.09*pu*r*age; px(sxp-r,syp-r,2+r*2,2+r*2,c); }
+    x.globalAlpha=age; px(sxp,syp,2,2,c); x.globalAlpha=1;
+  }
+  /* die Figur laeuft die fertige Kurve noch einmal ab */
+  if(draw<1){
+    var wxp=((edge-14)/292)*WORLD;
+    person(edge-2,lifeY(groundY(wxp))|0,(tt/6|0),AVATAR[10],0);
+  } else {
+    var t2=((tt*.6)%340)/340, wxq=t2*WORLD;
+    x.globalAlpha=.9;
+    person(lifeX(wxq)-2,lifeY(groundY(wxq))|0,(tt/6|0),AVATAR[10],0);
+    x.globalAlpha=1;
   }
 }
 
@@ -948,26 +1043,32 @@ function closeDlg(){
 function startEnd(){
   state='end'; endT=0;
   var t=T[lang];
-  document.getElementById('e-h').textContent=t.endH;
-  document.getElementById('e-sub').textContent=t.endSub;
-  var c=''; for(var i=0;i<N;i++) c+='<span>'+ST[i].f[lang]+'</span>';
-  document.getElementById('e-chips').innerHTML=c;
   document.getElementById('e-credits').innerHTML=t.credits;
   document.getElementById('e-again').textContent=t.again;
+  document.getElementById('e-take').innerHTML=
+    '<div class="th">'+t.takeH+'</div>'+
+    '<div class="row" id="tk1"><div class="n">01</div><div class="tx"><b>'+t.take1+'</b>'+t.take1b+'</div></div>'+
+    '<div class="row" id="tk2"><div class="n">02</div><div class="tx"><b>'+t.take2+'</b>'+t.take2b+'</div></div>'+
+    '<div class="row" id="tk3"><div class="n">03</div><div class="tx"><b>'+t.take3+'</b>'+t.take3b+'</div></div>'+
+    '<div class="fin" id="tkf">'+t.takeEnd+'</div>';
   document.getElementById('end').classList.add('show');
-  typeBrand(t.brand);
+  ['tk1','tk2','tk3','tkf'].forEach(function(id,k){
+    setTimeout(function(){
+      var el=document.getElementById(id); if(el) el.classList.add('in');
+      blip(520+k*80,.10);
+    }, 2700+k*750);
+  });
 }
-var typeTimer=null;
-function typeBrand(s){
-  var el=document.getElementById('e-brand'), i=0;
-  clearInterval(typeTimer); el.textContent='';
-  typeTimer=setInterval(function(){ i+=2; el.textContent=s.slice(0,i); if(i>=s.length) clearInterval(typeTimer); },16);
-}
+function preUI(){ document.body.classList.toggle('pre', state==='title'||state==='intro'); }
 function chrome(){
   var t=T[lang];
   document.getElementById('t-sub').textContent=t.sub;
   document.getElementById('t-keys').innerHTML=t.keys;
   document.getElementById('t-start').textContent=t.start;
+  document.getElementById('i-h').textContent=t.introH;
+  document.getElementById('i-body').innerHTML=t.intro;
+  document.getElementById('i-meta').textContent=t.introMeta;
+  document.getElementById('i-go').textContent=t.introGo;
   document.getElementById('b-de').classList.toggle('on',lang==='de');
   document.getElementById('b-en').classList.toggle('on',lang==='en');
   if(state==='dialog'&&active>=0) openDlg(active);
@@ -977,14 +1078,23 @@ function reset(){
   player.air=false; player.hurt=false; camX=0; camLead=0; active=-1; stormT=0; endT=0; state='title';
   joined={bianca:false,isac:false,iara:false}; trail=[]; dust=[];
   document.getElementById('end').classList.remove('show');
-  document.getElementById('title').classList.add('show');
+  document.getElementById('intro').classList.remove('show');
+  document.getElementById('title').classList.add('show'); preUI();
   dlg.classList.remove('show'); prompt.classList.remove('show'); toast.classList.remove('show');
   fragsUI();
 }
 
 /* ══════════════ input ══════════════ */
 function act(){
-  if(state==='title'){ document.getElementById('title').classList.remove('show'); state='play'; blip(520,.08); return; }
+  if(state==='title'){
+    document.getElementById('title').classList.remove('show');
+    document.getElementById('intro').classList.add('show');
+    state='intro'; preUI(); blip(520,.08); return;
+  }
+  if(state==='intro'){
+    document.getElementById('intro').classList.remove('show');
+    state='play'; preUI(); blip(660,.08); return;
+  }
   if(state==='dialog'){ closeDlg(); blip(420,.07); return; }
   if(state==='end'){ reset(); return; }
   if(state==='play'&&active>=0) openDlg(active);
@@ -1008,7 +1118,7 @@ hold('p-r',function(v){keys.r=v;});
 document.getElementById('p-a').addEventListener('pointerdown',function(e){e.preventDefault();act();});
 stage.addEventListener('pointerdown',function(e){
   if(e.target.closest('.btn')||e.target.closest('#pad')) return;
-  if(state==='title'||state==='dialog'||state==='end') act();
+  if(state==='title'||state==='intro'||state==='dialog'||state==='end') act();
 });
 document.getElementById('b-de').onclick=function(){lang='de';chrome();};
 document.getElementById('b-en').onclick=function(){lang='en';chrome();};
@@ -1084,7 +1194,7 @@ function step(){
   x.restore();
   requestAnimationFrame(step);
 }
-fragsUI(); chrome(); step();
+fragsUI(); chrome(); preUI(); step();
 })();
 </script>
 </body>
